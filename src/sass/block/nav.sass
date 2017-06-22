@@ -1,0 +1,648 @@
+/*------------------------------------------------------------------
+  * Nav styles
+  + Nav / .nav
+  + Nav v1 / .nav--v1
+  + Nav v2 / .nav--v2
+  + Nav v3 / .nav--v3
+  + Nav v4 / .nav--v4
+  + Nav v5 / .nav--v5
+  + Nav v6 / .nav--v6
+  * More info docs_build/ui/nav.html
+  ******************************************************************/
+=subitem
+  &:last-of-type
+    > a
+      border-bottom: none
+
++b(nav)
+  font-family: $font-family-title
+  +e(link)
+    /* main navigation buttons style
+    position: relative
+    display: block
+    overflow: visible
+    transition: 0.3s
+    +vr-fz(16, $margin: sticky)
+    .nav__item.opened > &,
+    &.active
+      color: $brand-color
+      text-decoration: none
+    .nav__item:hover > &,
+    &:hover
+      @media (min-width: $screen-lg-min)
+        color: $brand-color
+        text-decoration: none
+
+    +when('item--lvl-1 > ')
+      padding: 0 8px
+      font-weight: 600
+      color: #fff
+
+    +when('item--lvl-sub > ')
+      color: $gray-color-dark
+      padding: 11px 0
+      margin: 0 30px
+      font-size: 15px
+      border-bottom: 1px solid $default-color
+      &:after
+        right: 2px
+      &.active
+        color: $brand-color
+        padding-left: 5px
+
+      &:hover
+        @media (min-width: $screen-lg-min)
+          color: $brand-color
+          padding-left: 5px
+
+    +when('item--title > ')
+      font-weight: 600
+      color: $gray-color-dark
+      font-size: 15px
+
+    +when('item--group > ')
+      padding: 3px 0
+      margin: 0
+      color: $gray-color-dark
+      font-size: 15px
+
+    +when('sub--left .has-children')
+
+      @media (min-width: $screen-lg-min)
+        padding-left: 20px
+        &:after
+          transform: rotate(180deg) !important
+          margin-right: 7px
+          margin-left: 0
+          left: 0
+          right: auto
+        +on(hover)
+          padding-left: 25px
+  +e(item)
+    position: relative
+    padding: 5px 0
+    @media (max-width: $screen-xs-max)
+      padding: 0
+    +m(lvl-1)
+      float: left
+      margin-right: 15px
+      &.has-children.opened
+        > .nav__link
+          &:after
+            transform: rotate(90deg)
+
+      .nav--v1 &.has-children:hover,
+      .nav--v2 &.has-children:hover,
+      .nav--v6 &.has-children:hover
+        > .nav__link
+          &:after
+            @media (min-width: $screen-lg-min)
+              transform: rotate(90deg)
+    +m(lvl-sub)
+      +subitem
+    +m(mega)
+      position: static !important
+
+
+  .has-children
+    position: relative
+    > .nav__link
+      +font-awesome-icon($fa-var-caret-right, $size: 0.6em, $after: true)
+      &:after
+        margin: 0 0 0 7px
+        position: absolute
+        transition: transform 0.3s
+        transform: rotate(0deg)
+        +when(rtl, true)
+          margin-right: 7px
+          margin-left: 0
+          right: auto
+
+  +e(sub)
+    +dropdown-menu
+    width: 230px
+    background: $panel-bg-color
+    right: auto
+    left: 0
+    top: 100%
+    z-index: 25
+    +clearfix
+    +m(col-2)
+      width: 580px
+    +m(col-3)
+      width: 780px
+    .nav__item--mega > &
+      left: 0
+      right: 0
+      width: auto
+      margin-top: -10px
+      @media (max-width: $screen-xs-max)
+        margin-top: 0
+    +m(left)
+      @media (min-width: $screen-sm-min)
+        left: auto
+        right: 0
+    +m(right)
+      @media (min-width: $screen-sm-min)
+        left: 0
+        right: auto
+    +m(lvl-1)
+      left: 100%
+      top: 0
+      +is(is-hidden)
+        transform: translateX(100%)
+      +is(nav__sub--left)
+        @media (min-width: $screen-sm-min)
+          right: 100%
+          left: auto
+
+  +e(container)
+    padding-left: 15px
+    padding-right: 15px
+  +e(list)
+    list-style: none
+    margin: 0
+    padding: 0
+    > a
+      font-weight: 600
+      color: #fff
+      text-transform: uppercase
+
+  +e(group)
+    float: left
+    width: 200px
+    color: #fff
+    margin-left: 60px
+    padding: 12px 0 50px
+
+    +m(event-item)
+      width: 260px
+    +m(event-list)
+    @media (max-width: $screen-md-max)
+      width: 50%
+      margin: 0
+      padding: 50px
+      &:nth-child(3n)
+        clear: both
+    @media (max-width: $screen-xs-max)
+      padding: 15px
+      margin-left: 0
+      width: 100%
+      text-align: center
+  +e(event-preview)
+    position: relative
+    margin: 0
+    display: block
+    +m(second)
+      margin-top: 25px
+  +e(event-hover)
+    display: none
+  +e(event-title)
+    color: #fff
+    margin-top: 10px
+  +e(event-subtitle)
+    color: $gray-color-dark
+    font-size: 15px
+    margin-top: 0
+  +e(event-date)
+    color: $gray-color-dark
+    +vr-fz(14)
+    margin: -9px 0 0 0
+    display: block
+
+  // mobile standart menu view
+  +m(standard)
+    @media (max-width: $screen-md-max)
+      position: absolute
+      top: 60px
+      right: 0
+      left: 0
+      z-index: 30
+      background: $panel-bg-color
+      min-height: 100%
+      transform: translateX(-110%)
+      transition: transform 0.3s
+      margin: 0
+      +is(opened)
+        transform: translateX(0)
+      +rtl
+        transform: translateX(110%)
+        +is(opened)
+          transform: translateX(0)
+      +e(sub)
+        position: relative
+        +m(lvl-1)
+          position: relative
+          left: 0
+
+
+      +e(list)
+      +e(link)
+        +when('item--lvl-1 > ')
+          +vr-fz(22, $margin: 'sticky')
+          padding-top: 10px
+          padding-bottom: 10px
+          text-transform: uppercase
+          text-align: center
+          &:after
+            top: -3px
+        +when('item--lvl-sub > ')
+          +vr-fz(17, $margin: 'sticky')
+          color: $panel-text-color
+          text-transform: none
+          border-bottom: none
+          font-weight: normal
+          text-align: center
+        +when('item--lvl-sub .nav__item--lvl-sub > ')
+          +vr-fz(15, $margin: 'sticky')
+          color: #fff
+          padding: 5px 0
+      .has-children > .nav__link:after
+        position: relative
+      .has-children.opened > .nav__link:after
+        transform: rotate(90deg)
+      +e(item)
+        +m(mega)
+          &.opened
+            width: auto
+        +m(lvl-1)
+          border-bottom: 1px solid $default-color-dark
+          float: none
+          width: 220px
+          margin: 0 auto
+        +m(lvl-2)
+          margin: 0
+        +m(lvl-3)
+          margin: 0
+  .widget--listing
+    margin-top: 0
+  .no-content__icon
+    width: 150px
+    fill: #fff
+  .no-content
+    background: none
+    padding: 0
+  .no-content__title
+    margin-top: 0
+    color: #fff
+    +fz(19)
+  .menu
+    ul
+      +ul
+      .page_item
+        display: inline-block
+        margin-right: 10px
+        position: relative
+        &:hover
+          > .children
+            display: block
+            background: #2f2f2f
+            position: absolute
+            top: 30px
+            z-index: 50
+            width: 200px
+            padding: 15px
+            .page_item
+              display: block
+
+            .children
+              top: 0
+              left: 100%
+        a
+          padding: 0 8px
+          font-weight: 400
+          color: #fff
+      .children
+        display: none
+  +m(v1)
+    +max(xs)
+      left: -15px
+      right: -15px
+  +m(v2)
+    +max(md)
+      //display: none
+      position: absolute
+      top: 60px
+      right: -15px
+      left: -15px
+      z-index: 30
+      background: $panel-bg-color
+      min-height: 100%
+      transform: translateX(-110%)
+      transition: transform 0.3s
+      margin: 0
+      overflow-y: auto
+      max-height: 470px
+    +e(item)
+      +m(lvl-1)
+        padding: 40px 0
+        @media (min-width: $screen-lg-min)
+          &:last-of-type
+            margin-right: 0
+        @media (max-width: $screen-md-max)
+          padding: 0
+    +e(link)
+      +when('item--lvl-1 > ')
+        color: $title-color
+        @media (max-width: $screen-xs-max)
+          color: #fff
+    +is(opened)
+      transform: translateX(0)
+      +max(xs)
+        //display: block
+  +m(v3)
+    width: 100%
+    position: fixed
+    top: 60px
+    right: 0
+    left: 0
+    z-index: 25
+    background: $panel-bg-color
+    min-height: 100%
+    transform: translateY(-120%)
+    transition: 0.3s
+    height: 100%
+    overflow-y: auto
+    padding-bottom: 90px
+
+    +is(opened)
+      transform: translateY(0)
+    .admin-bar &
+      top: 90px
+      +max(md)
+        top: 106px
+    +e(sub)
+      position: relative
+      margin-top: 0
+      display: flex
+      justify-content: center
+      +m(lvl-1)
+        position: relative
+        left: 0
+    +e(list)
+    +e(link)
+      +when('item--lvl-1 > ')
+        +vr-fz(22, $margin: 'sticky')
+        text-transform: uppercase
+        text-align: center
+        &:after
+          top: -3px
+        @media (min-width: $screen-lg-min)
+          padding: 0.7em 0 0
+      +when('item--lvl-sub > ')
+        +vr-fz(17, $margin: 'sticky')
+        color: $panel-text-color
+        text-transform: none
+        border-bottom: none
+        font-weight: normal
+        text-align: center
+        padding: 0.2em 0
+        +is('active')
+          color: $brand-color
+
+      +when('item--lvl-sub .nav__item--lvl-sub > ')
+        +vr-fz(15, $margin: 'sticky')
+        color: #fff
+        padding: 0
+        +is('active')
+          color: $brand-color
+    .has-children > .nav__link:after
+      position: relative
+    .has-children.opened > .nav__link:after
+      transform: rotate(90deg)
+    +e(item)
+      +m(mega)
+        &.opened
+          width: auto
+      +m(lvl-1)
+        border-bottom: 1px solid $default-color-dark
+        float: none
+        width: 220px
+        margin: 0 auto
+      +m(lvl-2)
+        margin: 0
+      +m(lvl-3)
+        margin: 0
+    +e(container)
+      width: 100%
+  +m(v4)
+    top: 0
+    //padding-top: 100px
+    padding-bottom: 140px
+    //@media (max-width: $screen-xs-max)
+    //  padding-top: 50px
+    & + .main--subpage
+      padding-top: 90px
+      @media (max-width: $screen-xs-max)
+        padding-top: 60px
+    .admin-bar &
+      +max(md)
+        top: 140px
+      +max(xs)
+        top: 110px
+
+  +m(v5)
+    top: 30px
+    width: 330px
+    margin-left: 0
+    padding: 60px 15px 30px
+    transform: translateX(-110%)
+    +is(opened)
+      transform: translateX(0)
+    .admin-bar &
+        top: 30px
+        +max(md)
+          top: 50px
+    +e(item)
+      +m(lvl-1)
+        width: auto
+      +e(mega)
+        padding-bottom: 15px
+
+    +e(link)
+      +when('item--lvl-1 > ')
+        font-size: 17px
+        text-align: left
+        +max(xs)
+          line-height: 2em
+      +when('item--lvl-sub > ')
+        text-align: left
+    +e(sub)
+      //margin-left: 15px
+      justify-content: flex-start
+    +e(group)
+      margin-left: 0
+      padding-bottom: 0
+    +e(container)
+      .vc_col-sm-3
+        width: 100%
+  +m(v6)
+    padding: 35px 0
+    +max(md)
+      top: 93px
+    @media (max-width: $screen-xs-max)
+      top: 53px
+      padding: 0
+
+    +e(sub)
+      @media (min-width: $screen-lg-min)
+        background: $gray-bg-color
+        +when('item--mega > ')
+          left: 0
+          right: 0
+          margin-top: -10px
+    +e(item)
+      +m(lvl-1)
+        @media (min-width: $screen-lg-min)
+          &:last-of-type
+            margin-right: 0
+        @media (max-width: $screen-md-max)
+          padding: 0
+      +m(lvl-sub)
+        +subitem
+
+    +e(event-title)
+      color: $default-color
+    +e(subtitle)
+      @media (min-width: $screen-lg-min)
+        color: $title-color
+    +e(link)
+      @media (min-width: $screen-lg-min)
+        +when('item--lvl-1 > ')
+          color: $title-color
+        +when('item--lvl-sub > ')
+          color: $default-color
+          border-bottom: 1px solid $gray-color
+
+    .widget--menu .widget__title,
+    .widget--menu .widgettitle
+      color: $default-color
+    .no-content__title
+      color: $default-color
+  +m(v7)
+    @media (max-width: $screen-xs-max)
+      top: 80px
+      right: -15px
+      left: -15px
+      overflow-y: auto
+      max-height: 470px
+      //padding-top: 70px
+      z-index: 1
+    +e(item)
+      &:hover,
+      &.opened
+        > .nav__link
+          color: $brand-color
+      +m(mega)
+        .nav__list
+          @media (min-width: $screen-lg-min)
+            width: 1200px!important
+            margin: 0 auto
+
+      +m(lvl-1)
+        > .nav__sub
+
+          @media (min-width: $screen-sm-min)
+            //position: fixed
+            //top: 80px
+            //bottom: 0
+            //left: 0
+            //right: 0
+            //width: auto
+            background: none
+            //margin-top: 0
+            //.nav__list
+            //  width: 250px
+            //  margin: 0 auto
+      +m(lvl-sub)
+        > .nav__link
+          margin: 0 15px
+
+        &.opened
+          > .nav__link
+            &:after
+              transform: rotate(90deg)
+    +e(link)
+      &.active
+        color: #fff
+
+    +e(sub)
+      +m(lvl-1)
+        position: relative
+        left: 0
+        background: none
+    +e(container)
+      +container
+  +m(dark)
+    +e(link)
+      +when('item--lvl-1 > ')
+        color: $title-color
+        +max(md)
+          color: #fff
+
+  +m(opened)
+    &:after
+      content: " "
+      display: block
+      position: fixed
+      //background: rgba($panel-bg-color, 0.8)
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
+      z-index: 20
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, .5) 100%)
+    +e(link)
+      +when('item--lvl-1 > ')
+        color: #fff
+        @media (max-width: $screen-xs-max)
+          color: #fff
+  +m(filter)
+    +e(list)
+      +ul
+    +e(item)
+      display: inline-block
+    +e(link)
+      +vr-fz(15, $margin: 'sticky')
+      padding: 0
+      margin-right: 15px
+      color: $default-color
+      font-weight: 400
+      border-bottom: 2px solid transparent
+      &.active
+        font-weight: bold
+        border-bottom: 2px solid $brand-color
+  +m(auth)
+    width: 200px
+    a
+      +toolbar-links
+  +m(ddd)
+    .page_item
+      position: relative
+      padding: 5px 0
+      @media (max-width: $screen-xs-max)
+        padding: 0
+      a
+        position: relative
+        display: block
+        overflow: visible
+        transition: 0.3s
+        +vr-fz(16, $margin: sticky)
+
+.nav--v1 .nav__item:hover > .nav__sub,
+.nav--v2 .nav__item:hover > .nav__sub,
+.nav--v6 .nav__item:hover > .nav__sub,
+.nav--v1 .has-children:hover > .nav__sub,
+.nav--v2 .has-children:hover > .nav__sub,
+.nav--v6 .has-children:hover > .nav__sub
+  @media (min-width: $screen-lg-min)
+    opacity: 1
+    height: auto
+    overflow: visible
+    pointer-events: auto
+    transform: translate3d(0, 0, 0)
+
+.navbar-nav > li > a
+  @media (min-width: $screen-xs-min)
+    padding-top: 13px
+    padding-bottom: 13px

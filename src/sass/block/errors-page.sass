@@ -1,0 +1,33 @@
+/*------------------------------------------------------------------
+  * Errors page / .errors-page
+  ******************************************************************/
++b(errors-page)
+  text-align: center
+  +pdb(2)
+  +e(title)
+    +vr-fz(30, $margin: double)
+    font-weight: 200
+    text-transform: uppercase
+  +e(wrap)
+    position: relative
+    display: inline-block
+  +e(type)
+    +vr-fz(160, $margin: sticky)
+    font-weight: 200
+    span
+      color: $brand-color
+  +e(label)
+    text-transform: uppercase
+    background: #fff
+    position: absolute
+    top: 60px
+    padding: 0 5px
+    left: -20px
+    font-weight: 600
+  +e(description)
+  +e(nav)
+    +margin(2)
+    a
+      margin: 0 15px
+  +e(social)
+    +margin(1)

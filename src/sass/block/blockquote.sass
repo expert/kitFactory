@@ -1,0 +1,28 @@
+/*------------------------------------------------------------------
+  * Blockquote
+  ******************************************************************/
+blockquote
+  border-left: none
+  +vr-fz(17)
+  padding: 0 0 0 30px
+  +pdb(1)
+  margin-left: 1.5em
+  position: relative
+  font-style: italic
+  &:before
+    content: '\201C'
+    font-size: 50px
+    color: $brand-color
+    position: absolute
+    left: 0
+    top: 12px
+    font-weight: bold
+  +is(pull-right)
+    border-right: none
+    margin: 0 1.5em 0 0
+    padding: 0 30px 0 0
+    &:before
+      left: auto
+      right: 0
+
+

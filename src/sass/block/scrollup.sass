@@ -1,0 +1,26 @@
++b(scrollup)
+  +btn
+  border: 2px solid $default-color-dark
+  border-radius: 5px
+  color: #fff
+  background: $default-color-dark
+  height: 40px
+  width: 40px
+  outline: none
+  position: fixed
+  right: 50%
+  bottom: 120px
+  margin-right: -585px
+  opacity: 0
+  visibility: hidden
+  transition: 0.4s
+  line-height: 33px
+  z-index: 500
+  +font-awesome-icon($fa-var-angle-up, $size: 2em)
+  &.scrollup-show
+    opacity: 1
+    visibility: visible
+  @media (max-width: $screen-md-max)
+    margin-right: 0
+    right: 15px
+    bottom: 30px

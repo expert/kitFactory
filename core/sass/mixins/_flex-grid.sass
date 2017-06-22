@@ -1,0 +1,42 @@
+// Generate the large columns
+=lg-flex-column($columns)
+  @media (min-width: $screen-lg-min)
+    width: percentage((1 / $columns))
+
+// Generate the medium columns
+=md-flex-column($columns)
+  @media (min-width: $screen-md-min)
+    width: percentage((1 / $columns))
+
+// Generate the small columns
+=sm-flex-column($columns)
+  @media (min-width: $screen-sm-min)
+    width: percentage((1 / $columns))
+
+// Generate the extra small columns
+=xs-flex-column($columns)
+  width: percentage((1 / $columns))
+
+=make-flex-item($args...)
+  $columns: keywords($args)
+  $media: $screen-lg-min
+  padding-left:  ($grid-gutter-width / 2)
+  padding-right: ($grid-gutter-width / 2)
+  $sticky: false
+
+  @if map-has-key($columns, "xs")
+    $col: map-get($columns, "xs")
+    +xs-flex-column($col)
+
+  @if map-has-key($columns, "sm")
+    $col: map-get($columns, "sm")
+    $media: $screen-sm-min
+    +sm-flex-column($col)
+
+  @if map-has-key($columns, "md")
+    $col: map-get($columns, "md")
+    $media: $screen-md-min
+    +md-flex-column($col)
+  @if map-has-key($columns, "lg")
+    $col: map-get($columns, "lg")
+    +lg-flex-column($col)

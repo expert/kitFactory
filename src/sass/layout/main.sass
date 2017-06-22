@@ -1,0 +1,71 @@
+/*------------------------------------------------------------------
+  * Main / .main
+  * .main--subpage
+  * More info docs_build/layout/common.html
+  ******************************************************************/
+
++b(main)
+  +clearfix
+  +e(subname)
+    margin-top: 0
+
+  +e(wrap)
+    +make-row
+    +margin(3)
+    @media (max-width: $screen-xs-max)
+      +margin(1)
+  +e(columns)
+    +margin(1)
+    @media (min-width: $screen-lg-min)
+      column-count: 2
+      column-gap: 30px
+  +m(subpage)
+    +pdb(3)
+    background-repeat: no-repeat
+    background-position: 50% 0
+    background-color: $gray-bg-color
+    word-wrap: break-word
+    @media (max-width: $screen-xs-max)
+      +pdb(1)
+    +e(head)
+      text-align: center
+
+    +e(title)
+      +vr-fz(60, $margin: double)
+      display: inline-block
+      text-transform: uppercase
+      font-family: $font-family-title
+      font-weight: 900
+      line-height: 1
+      color: $title-color
+      border-bottom: 4px solid
+      @media (max-width: $screen-xs-max)
+        +vr-fz(30, $margin: normal)
+    +e(content)
+      +make-column($md: 9)
+      padding: 0 15px
+      +when(sidebar-left, true)
+        @media (min-width: $screen-md-min)
+          float: right
+      +when(sidebar-hide, true)
+        width: 100%
+      > :first-child
+        margin-top: 0
+    +e(footer)
+      +margin(2)
+    & + .subscribe
+      margin-top: 0
+  //$backgrounds: ('events', 'sermons', 'blog', 'community', 'about', 'errors', 'shop', 'causes', 'default', 'gallery')
+  //@each $bg in $backgrounds
+  //  +m($bg)
+  //    background: url('../media-demo/backgrounds/bg-subpage--' + $bg + '.jpg') $gray-bg-color no-repeat 50% 0
+  //+m(subpage)
+  //  background: url('../img/no-photo--1200x400.png') $gray-bg-color no-repeat 50% 0
+  +m(ddd)
+    overflow-y: hidden
+    .edit-link
+      float: right
+    .reply
+      display: none
+    +e(wrap)
+      +margin(1)

@@ -1,0 +1,26 @@
+mixin pagination(title, pages)
+  // BEGIN PAGINATION
+  nav.pagination
+    a.pagination__btn
+      svg.pagination__btn-svg
+        use(xlink:href='#icon-arrow-left')
+      span.pagination__btn-span  Previous #{title}
+
+    if pages
+      ul.pagination__pages
+        li
+          a(href='#') 1
+        li.active
+          span 2
+        li
+          a(href='#') 3
+        li
+          span ...
+        li
+          a(href='#') 15
+
+    a.pagination__btn
+      span.pagination__btn-span Next #{title}
+      svg.pagination__btn-svg
+        use(xlink:href='#icon-arrow-right')
+  // END PAGINATION

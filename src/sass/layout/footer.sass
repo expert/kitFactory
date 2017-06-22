@@ -1,0 +1,48 @@
+/*------------------------------------------------------------------
+  * Footer / .footer
+  ******************************************************************/
++b(footer)
+  +e(column)
+    +make-block-item($xs: 12, $sm: 6, $md: 3)
+    +margin(3)
+    +pdb(3)
+    @media (max-width: $screen-sm-max)
+      margin-top: 0
+      padding-bottom: 0
+    &:empty
+      display: none
+  +e(panel)
+    background: $panel-bg-color
+    +clearfix
+    +pd(1)
+    @media (max-width: $screen-sm-max)
+      margin-top: 0
+      text-align: center
+    .container
+      position: relative
+  +e(panel-column)
+    +make-column($sm: 12, $md: 6)
+  +e(copyright)
+    color: #fff
+    font-size: 14px
+    display: block
+  +e(nav)
+    color: #fff
+    font-size: 14px
+    text-align: right
+    @media (max-width: $screen-sm-max)
+      text-align: center
+    a
+      color: #fff
+      border-right: 1px solid #fff6de
+      padding-right: 10px
+      margin-left: 10px
+      &:last-child
+        border-right: none
+  .widget-title
+    +footer-title
+    +vr-fz(21)
+  .textwidget
+    +margin(0.5)
+    p
+      margin-bottom: 0

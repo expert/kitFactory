@@ -1,0 +1,21 @@
+/*------------------------------------------------------------------
+  * Hr / .hr
+  * Hr solid / .hr--solid
+  * Hr solid-light / .hr--solid-light
+  * Hr dotted / .hr--dotted
+  * Hr dashed / .hr--dashed
+  * More info docs_build/ui/hr.html
+  ******************************************************************/
++b(hr)
+  +margin(1)
+  margin-bottom: 0
+  border-top: 1px solid $gray-color
+
+  +m(solid)
+    border-top: 1px solid #808080
+  +m(solid-light)
+    border-top: 1px solid #d0d0d0
+  +m(dotted)
+    border-top: 1px dotted #d0d0d0
+  +m(dashed)
+    border-top: 1px dashed #222222

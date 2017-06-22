@@ -1,0 +1,63 @@
+=breadcrumb-item
+  display: inline-block
+  padding: 5px 13px 0 0
+  color: #fff
+  +vr-fz(15, $margin: sticky)
+  &:last-child
+    a
+      background: none
+      &:after
+        display: none
+
+=breadcrumb-link
+  color: #fff
+  display: inline-block
+  &:after
+    content: "\e080"
+    position: relative
+    top: -1px
+    display: inline-block
+    font-family: 'Glyphicons Halflings'
+    font-size: 10px
+    margin: 0 0 0 10px
+
+/*------------------------------------------------------------------
+  * Breadcrumbs
+  + Breadcrumbs / .breadcrumbs
+    __ Breadcrumbs list / .breadcrumbs__list
+    __ Breadcrumbs item / .breadcrumbs__item
+    __ Breadcrumbs link / .breadcrumbs__link
+
+  * More info docs_build/ui/breadcrumbs.html
+  ******************************************************************/
++b(breadcrumbs)
+  +clearfix
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    +clearfix
+    color: transparent
+    > li
+      +breadcrumb-item
+    > span
+      +breadcrumb-item
+      > span
+        +vr-fz(12)
+        text-transform: uppercase
+        display: inline-block
+        padding-right: 10px
+        padding-bottom: 1px
+
+  +e(item)
+    +breadcrumb-item
+  a
+    +breadcrumb-link
+  +e(link)
+    +breadcrumb-link
+  +m(dark)
+    a
+      color: $default-color
+    +e(link)
+      color: $default-color

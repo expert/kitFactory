@@ -1,0 +1,75 @@
+/*------------------------------------------------------------------
+  * Filters / .filters
+  * More info docs_build/ui/filters.html
+  ******************************************************************/
++b(filters)
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  +e(period)
+    display: flex
+    justify-content: space-between
+  +e(period-label)
+    text-transform: uppercase
+    margin: 0 15px
+  +e(period-btn)
+    padding: 0
+    height: 30px
+  +e(period-svg)
+    width: 28px
+    height: 26px
+  +e(search)
+    display: flex
+    flex-wrap: wrap
+    .form-group
+      width: 150px
+      margin-bottom: 0
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+      @media (max-width: $screen-xs-max)
+        display: none
+    @media (max-width: $screen-xs-max)
+      margin-left: 15px
+  +e(form)
+    display: flex
+    @media (max-width: $screen-xs-max)
+      margin-right: 15px
+  +e(search-btn)
+    +ti-icon($ti-icon-search)
+    @media (max-width: $screen-xs-max)
+      margin-left: 15px
+  +e(view)
+    text-align: right
+    @media (max-width: $screen-xs-max)
+      display: none
+  +e(view-btn)
+    padding: 0
+    height: 30px
+    margin-left: 10px
+  +e(view-svg)
+    width: 28px
+    height: 26px
+    fill: $default-color
+    +m(masonry)
+      width: 16px
+      margin: 0 8px
+    +m(calendar)
+      width: 16px
+      margin: 0 8px
+  +m(opened)
+    +e(period)
+    +e(search)
+      @media (max-width: $screen-xs-max)
+
+        margin-left: 0
+        .form-group
+          display: block
+          width: 100%
+          +margin(0.5)
+          margin-left: 0
+          margin-right:  0
+    +e(search-btn)
+      @media (max-width: $screen-xs-max)
+        +margin(0.5)

@@ -1,0 +1,31 @@
+extends _base
+
+block main
+  // BEGIN BREADCRUMBS
+  nav.breadcrumbs
+    .container
+      ul
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') Home
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href='') #{pageTitle}
+  // END BREADCRUMBS
+  // BEGIN MAIN HEAD
+  header.main__head
+    h1.main__title #{pageTitle}
+  // END MAIN HEAD
+
+  .container
+    .main__wrap
+      // BEGIN MAIN CONTENT
+      .main__content
+        block content
+      // END MAIN CONTENT
+      // BEGIN SIDEBAR
+      aside.sidebar
+        block sidebar
+          .widget.widget--sidebar
+            .widget__title Sidebar widget
+            .widget__content
+              h1 Hello!
+      // END SIDEBAR

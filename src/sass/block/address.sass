@@ -1,0 +1,21 @@
+/*------------------------------------------------------------------
+  * Address / .address
+  * Address footer / .address--footer
+  * Address contacts / .address--contacts
+  * More info docs_build/ui/address.html
+  ******************************************************************/
++b(address)
+  +m(footer)
+    +vr-fz(17, sticky)
+    +e(list-body)
+      color: $default-color
+      font-weight: 400
+      +when(rtl, true)
+        margin-right: 0
+  +m(contacts)
+    +vr-fz(17, sticky)
+    +e(list)
+      +margin(1)
+    +e(list-body)
+      color: $default-color
+      font-weight: 400

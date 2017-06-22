@@ -1,0 +1,61 @@
+/*------------------------------------------------------------------
+  * Collapser / .collapser
+  ******************************************************************/
++b(collapser)
+  +clearfix
+  @media (max-width: $screen-xs-max)
+    padding-bottom: 0!important
+  +e(header)
+    @media (max-width: $screen-xs-max)
+      +pd(0.2)
+  +e(title)
+    @media (max-width: $screen-xs-max)
+      text-align: center
+      +ti-icon($ti-icon-angle-down, $size: 0.7em, $after: true)
+      margin-top: 0
+      &:after
+        margin-left: 10px
+  +e(content)
+    @media (max-width: $screen-xs-max)
+      display: none!important
+
+  +m(event-details)
+    +pdb(1)
+    +pd-lr(big)
+    background: $brand-color
+    +e(title)
+      text-transform: uppercase
+      color: #fff
+      @media (min-width: $screen-sm-min)
+        +fz(24)
+    +e(content)
+      display: flex
+      flex-wrap: wrap
+      @media (max-width: $screen-xs-max)
+        +pdb(1)
+
+  +m(event-schedule)
+    +margin(1)
+    width: 75%
+    @media (max-width: $screen-md-max)
+      width: 100%
+    @media (max-width: $screen-xs-max)
+      margin-top: 0
+    +e(header)
+      background: #e2e2e2
+      border-bottom: 1px solid #fff
+      text-transform: uppercase
+      @media (min-width: $screen-sm-min)
+        padding: 10px 15px
+    +e(title)
+      margin-top: 0
+      font-weight: 900
+
+  +m(expanded)
+    +e(title)
+      @media (max-width: $screen-xs-max)
+        +ti-icon($ti-icon-angle-up, $size: 0.7em, $after: true)
+
+    +e(content)
+      @media (max-width: $screen-xs-max)
+        display: block!important

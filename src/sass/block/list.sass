@@ -1,0 +1,15 @@
+/*------------------------------------------------------------------
+  * List / .list
+  * More info docs_build/ui/list.html
+  ******************************************************************/
++b(list)
+  padding: 0
+  margin: 0
+  list-style: none
+  +e(item)
+    +border-bottom
+    +pd(0.5)
+  +e(link)
+    +font-awesome-icon($fa-var-angle-right, $color: $default-color-dark, $size: 0.8em)
+    &:before
+      margin: 0 15px

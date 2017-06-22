@@ -1,0 +1,68 @@
+=vr-fz($font-size: 17, $inverse: false, $margin: "normal")
+  $font-size-em: $font-size / ($font-size-base / 1px)
+  $height-em: ($font-size-base / 1px) * $line-height-base / $font-size
+  font-size: $font-size-em + em
+  line-height: $height-em * ceil($font-size/(($font-size-base / 1px) * $line-height-base)) + em
+
+  @if $margin == "sticky"
+    $height-em: 0
+  @else if $margin == "double"
+    $height-em: $height-em * 2
+  @else if $margin == "triple"
+    $height-em: $height-em * 3
+
+  @if ($inverse)
+    margin-bottom: $height-em + em
+    margin-top: 0
+  @else
+    margin-top: $height-em + em
+    margin-bottom: 0
+
+=fz($font-size: 17)
+  $font-size-em: $font-size / ($font-size-base / 1px)
+  $height-em: ($font-size-base / 1px) * $line-height-base / $font-size
+  font-size: $font-size-em + em
+
+
+=margin($margin: 0)
+  $margin-em: (($font-size-base / 1px) * $line-height-base ) / ($font-size-base / 1px) * $margin
+  margin-top: $margin-em + em
+
+=mb($margin: 0)
+  $margin-em: (($font-size-base / 1px) * $line-height-base ) / ($font-size-base / 1px) * $margin
+  margin-bottom: $margin-em + em
+
+=pdb($padding: 0)
+  $padding-em: (($font-size-base / 1px) * $line-height-base ) / ($font-size-base / 1px) * $padding
+  padding-bottom: $padding-em + em
+
+=pdt($padding: 0)
+  $padding-em: (($font-size-base / 1px) * $line-height-base ) / ($font-size-base / 1px) * $padding
+  padding-top: $padding-em + em
+
+=pd($padding: 0)
+  $padding-em: (($font-size-base / 1px) * $line-height-base ) / ($font-size-base / 1px) * $padding
+  padding-bottom: $padding-em + em
+  padding-top: $padding-em + em
+
+=pd-lr($type: medium)
+  $padding: 15px
+  @if $type == normal
+    $padding: 15px
+  @if $type == medium
+    $padding: 20px
+  @else if $type == big
+    $padding: 30px
+  padding-left: $padding
+  padding-right: $padding
+  @if $type == big
+    @media (max-width: $screen-xs-max)
+      padding-left: 15px
+      padding-right: 15px
+
+=lh-fix($font-size: 17)
+  $top-em: (((($font-size-base / 1px) * $line-height-base ) / ($font-size * $line-height-base))) / 2
+  position: relative
+  top: $top-em + em
+  @media (max-width: $screen-xs-max)
+    top: 0

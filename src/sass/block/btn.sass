@@ -1,0 +1,91 @@
+/*------------------------------------------------------------------
+  * Btn / .btn
+  * Btn border default / .btn--border-default
+  * Btn border white / .btn--order-white
+  * Btn border brand / .btn--border-brand
+  * Btn link / .btn--link
+  * Btn flat / .btn--flat
+  * Btn small / .btn--small
+  * More info docs_build/ui/btn.html
+  ******************************************************************/
++b(btn)
+  +m(border-default)
+    +button-border-default
+    +is('btn--loading')
+      svg
+        opacity: 0
+  +m(border-white)
+    +button-border-white
+  +m(border-brand)
+    +button-border-brand
+  +m(link)
+    +button-link
+  +m(flat)
+    +button-flat
+  +m(flat-rounded)
+    +button-flat-rounded
+  +m(flat-small)
+    +button-flat-small
+  +m(circle-brand)
+    +button-circle-brand
+  +m(circle-white)
+    +button-circle-white
+
+
+  +m(comments)
+    +vr-fz(15, $margin: sticky)
+    color: $default-color
+    float: right
+    .fa
+      margin-right: 10px
+      +rtl
+        margin-right: 0
+        margin-left: 10px
+
+  +m(loading)
+    position: relative
+    &:before
+      position: absolute
+      left: 10px
+      +font-awesome($fa-var-gear, 1em, inherit)
+      animation: fa-spin 2s infinite linear
+      @media (max-width: $screen-xs-max)
+        font-size: 0.7em
+    +is(btn--flat-small)
+      &:before
+        position: relative
+        left: 0
+        margin-right: 10px
+    +is(btn--link)
+      &:before
+        position: relative
+        left: 0
+        margin-right: 10px
+  +m(loading-circle-o-notch)
+    &:before
+      content: '\f1ce'
+  +m(loading-refresh)
+    &:before
+      content: '\f021'
+  +m(loading-spinner)
+    &:before
+      content: '\f110'
+
+  &.has-error,
+  &.error
+    animation: shake 0.5s
+    color: transparent !important
+    &:after
+      content: "Error!"
+      animation: scaleFromUp 0.5s
+      z-index: 1
+      color: $danger-color
+
+  &.has-success,
+  &.success
+    color: transparent !important
+    &:after
+      content: "Success!"
+      animation: moveUp 0.5s
+      z-index: 1
+      color: $success-color

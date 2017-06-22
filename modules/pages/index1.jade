@@ -1,0 +1,13 @@
+extends index_base
+block config
+  - var bodyClass = 'scroll-animation';
+  - var page = 'index';
+
+block header
+  include ../layout/header
+  +nav('v3 nav--v5')
+
+block main
+  section.section
+    .section__content
+      h1 Priver

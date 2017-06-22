@@ -1,0 +1,15 @@
++b(listing)
+  +m(sermon)
+    +margin(-1.5)
+    @media (max-width: $screen-xs-max)
+      +margin(-1)
+    +e(item)
+      +margin(1.5)
+      float: left
+      width: 50%
+      &:first-of-type
+        @media (min-width: $screen-sm-min)
+          padding-right: 50px
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        +margin(1)

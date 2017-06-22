@@ -1,0 +1,12 @@
+{
+  "name": "realtyspace",
+  "authors": [
+    "contact@codefactory47.com"
+  ],
+  "license": "MIT",
+  "homepage": "codefactory47.com",
+  "dependencies": {
+    "themify-icons": "~0.1.0"
+  },
+  "private": true
+}

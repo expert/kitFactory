@@ -1,0 +1,122 @@
+=link-social($type, $position)
+  background: url('../img/logo-' + $type + '.png') $position no-repeat
+  padding: 0 0 0 50px
+  display: block
+  text-align: left
+  margin-bottom: 5px
+
+/*------------------------------------------------------------------
+  * Tab / .tab
+  * .tab--media
+  ******************************************************************/
+
++b(tab)
+  +m(media)
+    .tab-pane
+      +margin(1)
+    +e(expander)
+      display: none
+      +btn
+      @media (max-width: $screen-md-max)
+        display: block
+        +ti-icon($ti-icon-more-alt, $size: 2em)
+        position: absolute
+        right: 0
+        border-left: 1px solid $gray-color
+        background: #fff
+        height: 100%
+        padding: 0 10px
+    +e(nav)
+      display: flex
+      align-content: stretch
+      text-align: center
+      position: relative
+      flex-wrap: wrap
+      border-top: 1px solid $gray-color
+      border-bottom: 1px solid $gray-color
+      +ul
+      +margin(1.5)
+      @media (max-width: $screen-xs-max)
+        padding-right: 50px
+
+    +e(item)
+      border-left: 1px solid $gray-color
+      width: 150px
+      &:first-child
+        border-left: none
+      &.active,
+      &:hover
+        background: $brand-color
+      +m(social)
+        flex: 1
+        padding: 10px 15px
+        &:hover
+          background: none
+      @media (max-width: $screen-md-max)
+        &:nth-of-type(3)
+          display: none
+
+      @media (max-width: $screen-xs-max)
+        width: 50%
+        &:nth-of-type(n+3)
+          display: none
+
+    +e(link)
+      padding: 15px 10px
+      display: block
+    +e(svg)
+      fill: $default-color
+      width: 30px
+      height: 30px
+      +when('item.active')
+        fill: #fff
+      +when('item:hover')
+        fill: #fff
+
+    +e(title)
+      display: block
+      +when('item.active')
+        color: #fff
+      +when('item:hover')
+        color: #fff
+
+    +e(url)
+      //padding: 0 0 0
+      display: block
+      text-align: left
+      margin-bottom: 5px
+    +e(icon)
+      color: $brand-color
+      width: 30px
+      text-align: center
+
+    //+e(youtube)
+    //  +link-social(youtube, 5px 3px)
+    //
+    //+e(vimeo)
+    //  +link-social(vimeo, 15px 3px)
+    //
+    //+e(soundcloud)
+    //  +link-social(soundcloud, 0 3px)
+
+  +m(expanded)
+    +e(nav)
+      padding-right: 0
+    +e(expander)
+      display: none
+    +e(item)
+      display: block!important
+      @media (max-width: $screen-md-max)
+        width: 25%
+        border-bottom: 1px solid $gray-color
+      @media (max-width: $screen-xs-max)
+        width: 50%
+        border-right: 1px solid $gray-color
+        margin-left: -1px
+        &:first-of-type
+          border-left: 1px solid $gray-color
+      +m(social)
+        @media (max-width: $screen-md-max)
+          border-left: none
+          border-bottom: none
+          border-right:  none

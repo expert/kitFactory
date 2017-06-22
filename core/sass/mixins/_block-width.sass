@@ -1,0 +1,45 @@
+// Generate the large columns
+=lg-width($columns, $gutter: $grid-gutter-width)
+  position: relative
+  min-height: 1px
+  @media (min-width: $screen-lg-min)
+    width: percentage(($columns / $grid-columns))
+    
+// Generate the medium columns
+=md-width($columns, $gutter: $grid-gutter-width)
+  position: relative
+  min-height: 1px
+  @media (min-width: $screen-md-min)
+    width: percentage(($columns / $grid-columns))
+    
+// Generate the small columns
+=sm-width($columns, $gutter: $grid-gutter-width)
+  position: relative
+  min-height: 1px
+  @media (min-width: $screen-sm-min)
+    width: percentage(($columns / $grid-columns))
+
+
+// Generate the extra small columns
+=xs-width($columns, $gutter: $grid-gutter-width)
+  position: relative
+  min-height: 1px
+  width: percentage(($columns / $grid-columns))
+
+=make-block-width($args...)
+  $columns: keywords($args)
+  padding-left:  ($grid-gutter-width / 2)
+  padding-right: ($grid-gutter-width / 2)
+  @if map-has-key($columns, "xs")
+    $col: map-get($columns, "xs")
+    +xs-width($col)
+  @if map-has-key($columns, "sm")
+    $col: map-get($columns, "sm")
+    +sm-width($col)
+  @if map-has-key($columns, "md")
+    $col: map-get($columns, "md")
+    +md-width($col)
+  @if map-has-key($columns, "lg")
+    $col: map-get($columns, "lg")
+    +lg-width($col)
+

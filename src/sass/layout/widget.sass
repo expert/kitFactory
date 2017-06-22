@@ -1,0 +1,350 @@
+/*------------------------------------------------------------------
+  * Widget / .widget
+  * widget--landing
+  * widget--sidebar
+  * widget--footer
+  * widget--card
+  * widget--details
+  * widget--main
+  * widget--listing
+  * widget--panel
+  * More info docs_build/layout/widget.html
+  ******************************************************************/
++b(widget)
+  +clearfix
+  +e(content)
+    +clearfix
+  +e(preview-img)
+    width: 100%
+  +m(landing)
+    +e(header)
+      //+container
+    +e(title)
+      +title
+    +e(content)
+      //+container
+      //+margin(1.5)
+      +pdb(3)
+      @media (max-width: $screen-xs-max)
+        //+margin(1)
+        +pdb(1)
+
+  +m(sidebar)
+    background: #fff
+    padding: 0 20px
+    +pdb(1)
+    +margin(1)
+    &:first-of-type
+      margin-top: 0
+    +e(header)
+      border-bottom: 1px solid $border-color
+      +pdb(0.5)
+    +e(title)
+      text-transform: uppercase
+      font-weight: 900
+      +margin(0.5)
+    +e(content)
+      > ul
+        > li
+          > .children
+            margin-left: 50px
+
+    .children
+      margin-left: 15px
+  +m(footer)
+    +e(title)
+      +footer-title
+    +e(content)
+      +margin(0.5)
+  +m(card)
+    background: #fff
+    +margin(1)
+    +pd-lr(big)
+    &:first-of-type
+      margin-top: 0
+    +e(content)
+      +margin(0.5)
+      +pdb(1)
+    +e(title)
+      +title-details
+      +when('content')
+        margin-top: 0
+
+  +m(details)
+    +e(header)
+      display: flex
+      flex-wrap: wrap
+
+    +e(header-title)
+      flex: 1
+      padding-right: 15px
+      +margin(0.5)
+      +rtl
+        padding-right: 0
+        padding-left: 15px
+      @media (max-width: $screen-xs-max)
+        flex: auto
+        padding-right: 0
+
+    +e(header-column)
+      +margin(0.5)
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        display: flex
+        justify-content: space-between
+    +e(content)
+      margin-top: 1em
+      padding-bottom: 0
+    +e(categories)
+      display: flex
+
+    +e(preview)
+      +margin(1)
+      margin-left: -30px
+      margin-right: -30px
+      position: relative
+      @media (max-width: $screen-xs-max)
+        margin-left: 0
+        margin-right: 0
+
+
+    +e(description)
+      +margin(1)
+      +m(columns)
+        @media (min-width: $screen-md-min)
+          column-count: 2
+          column-gap: 30px
+
+
+    +e(map)
+      margin-left: -30px
+      margin-right: -30px
+      @media (max-width: $screen-xs-max)
+        margin-left: -15px
+        margin-right: -15px
+
+    +e(footer)
+      +margin(2)
+      +pd(1)
+      border-top: 1px solid $gray-color
+      display: flex
+      justify-content: space-between
+      align-items: center
+      flex-wrap: wrap
+      > h3
+        margin-top: 0
+        flex: 1
+        @media (max-width: $screen-xs-max)
+          text-align: center
+          flex: initial
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+        justify-content: center
+      .btn--flat
+        @media (max-width: $screen-xs-max)
+          +margin(1)
+  +m(main)
+    +margin(1.5)
+    border-top: 1px solid $border-color
+    +e(header)
+      +pd-lr(big)
+    +e(title)
+      +title-widget
+    +e(content)
+      +margin(1)
+  +m(listing)
+    +margin(1.5)
+
+  +m(white)
+    +e(title)
+      color: #fff
+      &:after
+        background-color: #fff
+
+  +m(title-big)
+    +e(header)
+      +margin(3)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(title)
+      +title-big
+      +when(header)
+        width: 50%
+    +e(content)
+      //+margin(3)
+      //+when('header + ')
+      //  +margin(1)
+      //@media (max-width: $screen-xs-max)
+      //  +margin(1)
+  +m(minimal)
+    +e(content)
+      +pdb(1)
+      margin-top: 0
+  +m(panel-bg)
+    background: $panel-bg-color
+  +m(gray)
+    background: #f2f2f2
+  +m(event)
+    //background: url('../img/bg-events.jpg') no-repeat 50% 0
+    //background-size: cover
+
+  +m(about)
+    position: relative
+    &:before
+      display: block!important
+      position: absolute
+      top: 0
+      left: 50%
+      right: 0
+      bottom: 0
+      background: rgba($panel-bg-color, 0.9)
+      +max(xs)
+        left: 0
+    .vc_column-inner
+      +max(xs)
+        padding-left: 15px!important
+    //background: url('../img/bg-about.jpg') no-repeat 50% 50%
+    //+e(title)
+    //  +title(#fff)
+    //  text-align: left
+    //  width: 465px
+      //&:after
+      //  background: #969696
+      //  margin-left: 0
+      //  margin-top: 0
+      //  width: 35px
+      //+rtl
+      //  text-align: right
+      //  float: left
+      //  &:after
+      //    margin-right: 0
+
+      @media (max-width: $screen-md-max)
+    //    width: 100%
+    //
+    //+e(content)
+    //  width: 50%
+    //  background: rgba($panel-bg-color, 0.9)
+    //  float: right
+    //  padding: 0 0 0 62px
+    //  @media (max-width: $screen-sm-max)
+    //    width: auto
+    //    padding-left: 15px
+  +m(subscribe)
+    background: $brand-color
+  +m(cause)
+    //background: url('../img/bg-donation.jpg') 50% 0 no-repeat
+    //background-size: cover
+  +m(gallery)
+    //background: url("../img/bg-gallery.jpg") 50% 0 no-repeat
+    +e(content)
+      width: 100%!important
+      padding-left: 0
+      padding-right: 0
+  +m(sermon)
+    //background: url("../img/bg-sermons.jpg") 50% 0 no-repeat
+    //background-size: cover
+    +e(content)
+      margin-top: 0
+  +m(products)
+    border-bottom: 1px solid $gray-color
+    +e(title)
+      float: left
+      width: 48%
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        float: none
+  +m(post)
+    +e(title)
+      float: left
+      width: 48%
+      margin-right: 2%
+      @media (max-width: $screen-xs-max)
+        float: none
+        width: auto
+  +m(account)
+    +e(header)
+      width: 66%
+      margin: 0 auto
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    +e(content)
+      width: 66%
+      margin: 0 auto
+      @media (max-width: $screen-xs-max)
+        width: 100%
+  +m(panel)
+    +e(content)
+      +pd(0.5)
+  +m(collapser)
+    +when('footer', true)
+      @media (max-width: $screen-xs-max)
+        +margin(1.5)
+    +e(header)
+      @media (max-width: $screen-xs-max)
+        +pd(0.5)
+        +when('footer', true)
+          border-top: 1px solid $gray-color
+          border-bottom: 1px solid $gray-color
+    +e(title)
+      @media (max-width: $screen-xs-max)
+        text-align: center
+        +ti-icon($ti-icon-angle-down, $size: 0.7em, $after: true)
+        margin-top: 0
+        &:after
+          margin-left: 10px
+    +e(content)
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  +m(expanded)
+    +e(title)
+      @media (max-width: $screen-xs-max)
+        +ti-icon($ti-icon-angle-up, $size: 0.7em, $after: true)
+
+    +e(content)
+      @media (max-width: $screen-xs-max)
+        display: block!important
+  +m(slider)
+    +e(content)
+      position: relative
+  +m(menu)
+    +e(title, widgettitle)
+      color: #fff
+      text-transform: uppercase
+      font-weight: 600
+      border-bottom: 2px solid $border-color
+      padding: 0 0 14px 0
+      margin-bottom: 15px
+      display: block
+      +fz(15)
+      &:hover
+        text-decoration: none
+        color: $brand-color
+
+    &.widget_nav_menu,
+    &.widget_rss,
+    &.widget_meta,
+    &.widget_pages,
+    &.widget_categories,
+    &.widget_archive,
+    &.widget_recent_entries,
+    &.widget_recent_comments
+      a
+        padding: 5px 0
+        margin: 0
+        color: $gray-color-dark
+        +fz(15)
+        display: block
+  +m(ddd)
+    .search-submit
+      +button-flat
+  +m(filter)
+    +e(content)
+      margin-top: 0
+  +m(hero)
+    +e(content)
+      padding-bottom: 0
+
+.widget:not(.widget--details):not(.widget--title-big) > :first-child
+  //margin-top: 0

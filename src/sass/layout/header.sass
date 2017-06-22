@@ -1,0 +1,362 @@
+/*------------------------------------------------------------------
+  * Header / .header
+  * .header--v1
+  * .header--v2
+  * .header--v3
+  * .header--v4
+  * .header--v5
+  * .header--v6
+  * More info docs_build/layout/header.html
+  ******************************************************************/
++b(header)
+  transition: transform 0.3s
+  +e(donate)
+    +m(v3)
+      margin-left: 80px
+
+  +e(logo)
+    margin-right: 30px
+    position: relative
+    +rtl
+      margin-left: 30px
+      margin-right: 0
+    @media (max-width: $screen-md-max)
+      max-width: 145px
+  +e(logo-svg)
+    width: 200px
+    height: 33px
+    fill: $brand-color
+    @media (max-width: $screen-md-max)
+      width: 145px
+
+  +e(timer)
+    position: relative
+    z-index: 10
+    padding: 5px 0
+    margin: -10px 0
+    color: white
+    background: $brand-color
+    .header__title
+      display: block
+      text-decoration: underline
+      color: white
+      line-height: 1
+      padding: 0 20px
+      margin: 0 0 5px
+      &:hover
+        text-decoration: none
+    .countdown
+      padding: 0
+      margin: 0
+      .countdown__column
+        width: 80px
+      .countdown__value
+        +vr-fz(42)
+        line-height: 1
+        margin-top: -5px
+      .countdown__label
+        +vr-fz(13)
+        line-height: 1
+        margin: 3px 0 5px
+      .countdown__delimiter
+        margin-top: 10px
+    +max(xs)
+      display: none
+
+  +e(row)
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 30px 0
+    @media (max-width: $screen-xs-max)
+      padding: 10px 0
+
+  +e(menu)
+    +btn
+    text-transform: uppercase
+    font-size: 17px
+    word-break: keep-all
+    line-height: 40px
+
+    +m(mob)
+      display: none
+    //  color: #fff
+    //  fill: #fff
+    //  @media (max-width: $screen-xs-max)
+    //    display: block
+
+    +m(v6)
+      color: $default-color
+      fill: $default-color
+    strong
+      margin-left: 15px
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  +e(menu-svg)
+    width: 40px
+    height: 40px
+    float: left
+  +m(v1)
+    background: $gray-bg-color
+    z-index: 30
+    position: relative
+    .container
+      width: auto
+      padding: 0 50px
+      @media (max-width: $screen-xs-max)
+        padding: 0 15px
+
+    +e(row)
+      padding: 10px 0
+    +e(logo)
+      margin: 0 auto
+      position: relative
+      left: -95px
+      //order: 2
+      //@media (max-width: $screen-md-max)
+        //margin-left: -55px
+      @media (max-width: $screen-md-max)
+        margin: 0 15px
+        max-width: 140px
+        left: 0
+    +e(logo-svg)
+      fill: $default-color-dark
+    +e(menu)
+      //order: 0
+      color: $brand-color
+      fill: $brand-color
+      z-index: 50
+      margin: 0
+      @media (max-width: $screen-sm-max)
+        strong
+          display: none
+    +e(controls)
+      //order: 1
+      margin-right: auto
+    +e(donate)
+      //order: 3
+      @media (max-width: $screen-xs-max)
+        display: none
+
+  +m(v2)
+    background: #fff
+    +e(row)
+      padding: 0
+      @media (max-width: $screen-md-max)
+        padding: 15px 0
+    +e(menu)
+      display: none
+      color: $default-color-dark
+      fill:  $default-color-dark
+      +max(md)
+        display: block
+
+  +m(v3)
+    position: relative
+    z-index: 30
+    background: #fff
+    +e(row)
+      padding: 10px 0
+    +e(menu)
+      margin-right: auto
+      margin-left: 15px
+      //+rtl
+      //  margin-right: 15px
+      //  margin-left: auto
+
+      @media (max-width: $screen-xs-max)
+        margin-left: 0
+        margin-right: 0
+        //order: 0
+    +e(logo)
+      @media (max-width: $screen-xs-max)
+        //order: 1
+        max-width: 145px
+        //margin-left: auto
+        //margin-right: auto
+    +e(donate)
+      display: none
+    &.header--sticky
+      background: #fff
+  +m(v4)
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    +max(md)
+      //position: relative
+      //top: 0!important
+      background: #2f2f2f
+    .admin-bar &
+      top: 30px
+      +max(xs)
+        top: 45px
+    .container
+      width: auto
+      padding: 0 50px
+      @media (max-width: $screen-xs-max)
+        padding: 0 15px
+    +e(timer)
+      background: transparent
+      .countdown
+        background: transparent
+
+      //&.header--sticky
+      //  background: #fff
+    +e(logo)
+      margin: 0 auto
+      //order: 2
+      z-index: 10
+      position: relative
+      margin-left: 0
+      left: -100px
+      @media (max-width: $screen-md-max)
+        //margin-left: 0px
+        //margin: 0 auto
+        max-width: 140px
+        left: 0
+        margin-left: auto
+    +e(logo-svg)
+      fill: #fff
+
+    +e(menu)
+      //order: 0
+      color: #fff
+      fill: #fff
+      z-index: 50
+      position: relative
+      @media (max-width: $screen-md-max)
+        strong
+          display: none
+    +e(donate)
+      //order: 3
+      position: relative
+      z-index: 10
+      @media (max-width: $screen-xs-max)
+        display: none
+
+    &.header--sticky
+      background: $panel-bg-color
+      top: -30px
+      //.admin-bar &
+        top: -30px
+      +e(row)
+        //padding: 10px 0
+
+  +m(v6)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 30
+    .admin-bar &
+      top: 30px
+      +max(xs)
+        top: 45px
+    +e(timer)
+      margin: -20px 0 0 0
+      background: transparent
+      .countdown
+        background: transparent
+  +m(v7)
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 30
+    transition: 0.3s
+    height: 80px
+    .admin-bar &
+      top: 30px
+      transform: translateY(0px)!important
+    & + .main--subpage
+      padding-top: 90px
+      @media (max-width: $screen-md-max)
+        padding-top: 60px
+    +e(row)
+      padding: 20px 0
+    +e(menu)
+      //margin-right: auto
+      //margin-left: 15px
+      z-index: 10
+
+      +max(md)
+        margin-right: auto
+    //+rtl
+      //  margin-right: 15px
+      //  margin-left: auto
+
+      //@media (max-width: $screen-xs-max)
+      //  margin-left: 0
+      //  margin-right: 0
+        //order: 0
+    +e(menu-svg)
+      fill: #fff
+    +e(logo)
+      z-index: 10
+      @media (max-width: $screen-xs-max)
+        //order: 1
+        max-width: 145px
+        //margin-left: auto
+        //margin-right: auto
+    +e(logo-svg)
+      fill: #fff
+    &.header--sticky
+      background: #fff
+      +max(xs)
+        .admin-bar &
+          top: 0
+      +when('nav--opened', true)
+        background: #000
+      +e(logo-svg)
+        fill: #000
+        +when('nav--opened', true)
+          fill: #fff
+      +e(menu)
+        +is(active)
+          .header__menu-svg
+            //fill: #fff
+      +e(menu-svg)
+        fill: #000
+  +m(fixed)
+    background: #fff
+    +when('nav--opened', true)
+      background: #000
+    +e(logo-svg)
+      fill: #000
+      +when('nav--opened', true)
+        fill: #fff
+    +e(menu)
+      +is(active)
+        .header__menu-svg
+          fill: #fff
+    +e(menu-svg)
+      fill: #000
+      //+when('header__menu.active', true)
+      //  fill: #fff
+  +m(sticky) // if is sticky: add class header--sticky
+    position: fixed
+    top: -30px
+    left: 0
+    right: 0
+    z-index: 30
+    transform: translateY(30px)
+    .admin-bar &
+      transform: translateY(60px)
+      +max(md)
+        transform: translateY(75px)
+      +max(xs)
+        transform: translateY(30px)
+    & + .nav--v3
+      +max(xs)
+        top: 60px!important
+      //top: 30px
+  +m(bg) // if is sticky: on scroll add class header--bg
+    background: #fff
+  +m(ddd)
+    +e(logo)
+      left: 0
+      margin: 0 auto
+      +margin(1)

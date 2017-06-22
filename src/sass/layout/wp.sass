@@ -1,0 +1,209 @@
+/*------------------------------------------------------------------
+  * WP default styles
+  ==============================================================*/
+.widget_archive,
+.widget_categories,
+.widget_pages,
+.widget_meta,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss,
+.widget_nav_menu
+  ul
+    +ul
+
+.widget_categories,
+.widget_archive
+  .select2-container,
+  select
+    +margin(1)
+    width: 100%
+    display: block
+
+.widget_search
+  .search-form
+    +margin(1)
+    display: flex
+  label
+    flex: 1
+    margin-bottom: 0
+  .search-field
+    +form-control
+    font-weight: normal
+    font-style: italic
+
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+  .search-submit
+    +button-flat
+    padding-left: 10px
+    padding-right: 10px
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+
+//.widget_text
+.textwidget
+  .footer &
+    background: none
+    padding: 0
+    border: none
+    margin: 0
+    line-height: 1.6
+
+  img
+    max-width: 100%
+.widget_calendar
+  table
+    width: 100%
+  caption
+    text-align: left
+    padding: 0 0 20px
+    font-weight: bold
+  th,
+  td
+    text-align: center
+    line-height: 33px
+  tfoot,
+  thead
+    border-top: 1px solid #d6d6d6
+  tbody
+    border-top: 1px solid #d6d6d6
+    a
+      background: $brand-color
+      color: #fff
+      display: block
+      &:hover
+        background: $brand-color-dark
+  tfoot
+    tr
+      td:first-of-type
+        text-align: left
+      td:last-of-type
+        text-align: right
+.tagcloud
+  +margin(0.5)
+  +pdb(0.5)
+  a
+    +fz(15)
+    +button-flat-small
+    font-weight: 400
+    margin: 10px 10px 0 0
+    text-transform: none
+  //a
+  //  color: $default-color
+  //  margin: 3px 10px 3px 0
+  //  display: inline-block
+  //  text-transform: uppercase
+  //  font-weight: 600
+
+.widget_nav_menu > .widget__content > ul,
+.widget_rss > .widget__content > ul,
+.widget_meta > .widget__content > ul,
+.widget_pages > .widget__content > ul,
+.widget_categories > .widget__content > ul,
+.widget_archive > .widget__content > ul,
+.widget_recent_entries > .widget__content > ul
+  > li
+    +border-bottom
+    +pd(0.5)
+    > a
+      +font-awesome-icon($fa-var-angle-right, $color: $default-color-dark, $size: 0.8em)
+      +vr-fz(18)
+      &:before
+        margin: 0 15px
+.widget_recent_comments
+  .recentcomments
+    padding: 15px 0
+    font-style: italic
+    color: #d6d6d6
+    +vr-fz(12, $margin: sticky)
+    +border-bottom(#d6d6d6)
+
+    > a
+      font-style: normal
+      display: block
+      margin-top: 10px
+      font-size: 14px
+  .comment-author-link
+    color: $default-color
+    font-style: normal
+    font-size: 14px
+    display: block
+    a
+      color: $default-color
+      font-style: normal
+      font-size: 14px
+
+
+//.widget_categories > .widget__content >  ul
+//  > li
+//    border-bottom-style: solid
+//    &:before
+//      font-size: 10px
+//      display: inline-block
+//      font-family: FontAwesome
+//      content: "\f0da"
+//      color: #2c3e50
+//      margin-right: 10px
+
+.widget_categories
+  > ul
+    > li
+      &:before
+        +font-awesome(10px, '\f0da')
+        color: $default-color
+        margin-right: 10px
+      > ul
+        margin-top: 15px
+        list-style: none
+        border-top: 1px solid #dedede
+
+
+
+.widget_nav_menu
+  ul
+    +cl(sub-menu)
+      margin-left: 20px
+
+//color: #bebebe
+
+
+.entry-header
+  .entry-title
+    +vr-fz(18)
+    font-weight: 700
+
+.entry-content
+  margin-top: 30px
+
+.entry-footer
+  margin-top: 30px
+  +clearfix
+
+.posted-on
+  background: rgba($brand-color, 0.7)
+  text-align: center
+  padding: 10px 5px
+  float: left
+  a
+    color: #fff
+.byline
+  padding-top: 10px
+  display: inline-block
+  margin-left: 10px
+
+
+.tags-links
+  margin-left: 50px
+
+//Theme Checker
+
+.gallery-caption,
+.bypostauthor
+  opacity: 1
+
+.single-featured-image-header
+  text-align: center
+  img
+    width: auto
+    height: auto

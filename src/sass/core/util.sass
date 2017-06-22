@@ -1,0 +1,67 @@
+a
+  color: $link-color
+  text-decoration: none
+  &.hover,
+  &:hover
+    color: $link-hover-color
+    text-decoration: $link-hover-decoration
+    cursor: pointer
+  &.focus,
+  &:focus
+    color: $link-color
+  &.active,
+  &:active
+    color: $link-color
+    text-decoration: none
+  &.disabled,
+  &:disabled
+    cursor: not-allowed
+    color: #ccc
+
+dl
+  margin: 0
+  dt
+    font-weight: normal
+  dd
+    font-weight: 600
+    color: $title-color
+    +rtl
+      margin-right: 0
+  &.dl-table
+    display: flex
+    flex-wrap: wrap
+    dt
+      width: 30%
+    dd
+      width: 70%
+  &.dl-list
+    dt
+      +margin(1)
+
+img,
+video
+  max-width: 100%
+
+.js-dapi-knob
+  visibility: hidden
+
+.loading-overlay
+  position: relative
+  > *:not(.loading)
+    opacity: 0.3
+  .loading
+    +absolute($top: 0, $right: 0, $bottom: 0, $left: 0)
+    display: block
+    z-index: 9
+    &:before
+      +font-awesome(4em, '\f015')
+      animation: bounceIn 1s infinite linear
+      +absolute($top: 50%, $left: 50%)
+      margin: -15px 0 0 -15px
+      z-index: 10
+      display: block
+    .footer &
+      color: #bebebe
+    +m(fixed)
+      &:before
+        position: fixed

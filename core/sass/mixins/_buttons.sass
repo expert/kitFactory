@@ -1,0 +1,146 @@
+// Button styles mixins
+// [loading] - add this class when start loading
+// [progress] - add this class when progress (optional)
+// [success] - add this class when ready
+
+//  button styles
+=button
+  display: inline-block
+  margin-bottom: 0
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  text-transform: uppercase
+  white-space: nowrap
+  +user-select(none)
+  padding: 8px 40px
+  font-weight: 700
+  +fz(15)
+  border: none
+  background: none
+  @media (max-width: $screen-xs-max)
+    padding: 5px 20px
+  &:hover,
+  &:focus,
+  &.active
+    color: initial
+    text-decoration: none
+    outline: none
+  &:disabled,
+  &.disabled
+    cursor: not-allowed
+    opacity: 0.8
+
+=button-flat-rounded
+  +button
+  background: $brand-color
+  +fz(21)
+  border-radius: 20px
+  padding: 3px 50px
+  color: #fff
+  &:hover
+    color: #fff
+  &:active
+    color: #fff
+
+=button-flat
+  +button
+  background: $brand-color
+  border-radius: 5px
+  box-shadow: 0 5px 0 $brand-color-dark
+  color: #fff
+  margin-bottom: 5px
+  &:hover
+    color: #fff
+  &:active
+    padding-top: 13px
+    box-shadow: none
+    margin-bottom: 0
+    color: #fff
+  &:focus
+    color: #fff
+  @media (max-width: $screen-xs-max)
+    &:active
+      padding-top: 8px
+      padding-bottom: 7px
+=button-flat-small
+  +button
+  +fz(12)
+  background: $brand-color
+  border-radius: 5px
+  color: #fff
+  padding: 3px 5px
+  &:hover
+    color: #fff
+  &:focus
+    color: #fff
+
+=button-circle-brand
+  +button
+  +fz(22)
+  background: $brand-color
+  border-radius: 20px
+  color: #fff
+  padding: 2px 30px
+  &:hover
+    color: #222
+  &:focus
+    color: #222
+
+=button-circle-white
+  +button
+  +fz(22)
+  background: transparent
+  border: 2px solid #fff
+  border-radius: 20px
+  color: #fff
+  padding: 2px 30px
+  transition: all .3s ease-in-out
+  &:hover
+    background: #fff
+    color: $brand-color
+  &:focus
+    background: #fff
+    color: $brand-color
+
+=button-border-white
+  +button
+  color: #fff
+  border: 2px solid #fff
+  border-radius: 5px
+  background: none
+  &:hover
+    color: #fff
+  &:active
+    color: #fff
+
+=button-border-brand
+  +button
+  color: $brand-color
+  border: 2px solid $brand-color
+  border-radius: 5px
+  &:hover
+    color: $brand-color
+  &:active
+    color: $brand-color
+
+=button-border-default
+  +button
+  color: $default-color
+  border: 1px solid $border-color
+  border-radius: 3px
+  background: none
+  padding: 1px 5px
+  @media (max-width: $screen-xs-max)
+    padding: 1px 5px
+
+=button-link
+  +button
+  color: $brand-color
+  text-decoration: underline
+  padding: 0
+  &:hover
+    color: $brand-color
+    text-decoration: none
+  @media (max-width: $screen-xs-max)
+    padding: 3px

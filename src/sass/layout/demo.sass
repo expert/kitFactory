@@ -1,0 +1,31 @@
+/*------------------------------------------------------------------
+  * Demo / .demo
+  ******************************************************************/
++b(demo)
+  +e(buttons)
+    h6
+      display: inline-block
+      width: 90px
+    > *
+      margin-right: 13px
+      @media (max-width: $screen-xs-max)
+        +margin(0.5)
+  +e(buttons-bg)
+    background: $gray-color-dark
+    padding: 15px
+    display: inline-block
+  +e(icons-item)
+    width: 15%
+    float: left
+    text-align: center
+    @media (max-width: $screen-xs-max)
+      width: 50%
+  +e(icons-svg)
+    width: 30%
+    height: auto
+    fill: $brand-color
+
+.bs-example--btn
+  @media (max-width: $screen-xs-max)
+    .btn
+      +margin(0.5)

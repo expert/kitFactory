@@ -1,0 +1,25 @@
+/*------------------------------------------------------------------
+  * Listing / .listing
+  * .listing--list
+  * .listing--grid
+  * .listing--masonry
+  * .listing--sermon
+  * .listing--event
+  * More info docs_build/layout/listing.html
+  ******************************************************************/
++b(listing)
+  +clearfix
+  +e(item)
+    +clearfix
+  +e(footer)
+    display: flex
+    flex-wrap: wrap
+    +margin(2)
+  +e(more)
+    margin: 0 auto
+
+@import "listing/listing--list"
+@import "listing/listing--grid"
+@import "listing/listing--masonry"
+@import "listing/listing--sermon"
+@import "listing/listing--event"

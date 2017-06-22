@@ -1,0 +1,77 @@
+mixin nav(type)
+  - var hasChildren, hasSubChildren, hasSub2Children, itemCls, subItemCls, sub2ItemCls;
+  - var navOnClick = ['v3', 'v3 nav--v4', 'v3 nav--v5', 'v7'].indexOf(type) > -1 ? ' js-nav-onclick' : '';
+  // BEGIN nav block
+  nav.nav.js-nav(class= 'nav--' + type + navOnClick)
+    ul.nav__list
+      each item, i in locals.data.menu
+        - hasChildren = item.sub && item.sub.length;
+        - itemCls = item.cls ? 'nav__item--' + item.cls : '';
+        li.nav__item.nav__item--lvl-1.js-nav-item(class=itemCls +  (hasChildren ? ' has-children' : ''))
+          a.nav__link(href = item.url + '.html', class= page === item.url ? 'active' : '') #{item.title}
+          if hasChildren
+            .nav__sub
+              ul.nav__list
+                each subItem, i in item.sub
+                  - hasSubChildren = subItem.sub && subItem.sub.length;
+                  - subItemCls = subItem.cls ? subItem.cls : '';
+                  if subItemCls == 'group'
+                    case subItem.sub[0].cls
+                      when 'event-item'
+                        li.nav__group(class='nav__group--event-item' + ( hasSubChildren ? ' has-children' : ''))
+                          a.nav__subtitle.nav__subtitle--nobd(href = subItem.url + '.html', class= page === subItem.url ? 'active' : '') #{subItem.title}
+                          a.nav__event-preview
+                            img.nav__event-img(src='#{path.media}/events/1.jpg', alt='')
+                            span.nav__event-hover Events Calendar
+                          h5.nav__event-title We all want to raise our children.
+                          h6.nav__event-subtitle Organizer - We Beleive Church
+                          a.nav__event-preview.nav__event-preview--second
+                            img.nav__event-img(src='#{path.media}/events/2.jpg', alt='')
+                            span.nav__event-hover Events Calendar
+                      when 'event-list'
+                        li.nav__group(class='nav__group--event-list' + ( hasSubChildren ? ' has-children' : ''))
+                          a.nav__subtitle(href = subItem.url + '.html', class= page === subItem.url ? 'active' : '') #{subItem.title}
+                          ul.nav__list
+                            each sub2Item, i in subItem.sub
+                              - sub2ItemCls = sub2Item.cls ? sub2Item.cls : '';
+                              - hasSub2Children = sub2Item.sub && sub2Item.sub.length;
+                              li.nav__item.nav__item--title(class=sub2ItemCls + (hasSub2Children ? ' has-children' : ''))
+                                a.nav__link(href = sub2Item.url + '.html', class= page === sub2Item.url ? 'active' : '') #{sub2Item.title}
+                                i.nav__event-date 14 - 15 July, 2015
+                      default
+                        li.nav__group(class=subItemCls + ( hasSubChildren ? ' has-children' : ''))
+                          a.nav__subtitle(href = subItem.url + '.html', class= page === subItem.url ? 'active' : '') #{subItem.title}
+                          ul.nav__list
+                            each sub2Item, i in subItem.sub
+                              - sub2ItemCls = sub2Item.cls ? sub2Item.cls : '';
+                              - hasSub2Children = sub2Item.sub && sub2Item.sub.length;
+                              li.nav__item.nav__item--group(class=sub2ItemCls + (hasSub2Children ? ' has-children' : ''))
+                                a.nav__link(href = sub2Item.url + '.html', class= page === sub2Item.url ? 'active' : '') #{sub2Item.title}
+                                if hasSub2Children
+                                  .nav__sub.nav__sub--lvl-1
+                                    ul.nav__list
+                                      each sub3Item, i in sub2Item.sub
+                                        li.nav__item.nav__item--lvl-4
+                                          a.nav__link(href = sub3Item.url + '.html', class= page === sub3Item.url ? 'active' : '') #{sub3Item.title}
+
+                  else
+                    li.nav__item.nav__item--lvl-sub(class=subItemCls + ( hasSubChildren ? ' has-children' : ''))
+                      a.nav__link(href = subItem.url + '.html', class= page === subItem.url ? 'active' : '') #{subItem.title}
+                      if hasSubChildren
+                        .nav__sub.nav__sub--lvl-1
+                          ul.nav__list
+                            each sub2Item, i in subItem.sub
+                              - hasSub2Children = sub2Item.sub && sub2Item.sub.length;
+                              - sub2ItemCls = sub2Item.cls ? sub2Item.cls : '';
+                              li.nav__item.nav__item--lvl-sub(class=sub2ItemCls + (hasSub2Children ? ' has-children' : ''))
+                                a.nav__link(href = sub2Item.url + '.html', class= page === sub2Item.url ? 'active' : '') #{sub2Item.title}
+                                if hasSub2Children
+                                  .nav__sub.nav__sub--lvl-1
+                                    ul.nav__list
+                                      each sub3Item, i in sub2Item.sub
+                                        - hasSub3Children = sub3Item.sub && sub3Item.sub.length;
+                                        - sub3ItemCls = sub3Item.cls ? sub3Item.cls : '';
+                                        li.nav__item.nav__item--lvl-sub(class=sub3ItemCls + (hasSub3Children ? ' has-children' : ''))
+                                          a.nav__link(href = sub3Item.url + '.html', class= page === sub3Item.url ? 'active' : '') #{sub3Item.title}
+
+  // END nav block

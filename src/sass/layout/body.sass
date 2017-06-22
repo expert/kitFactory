@@ -1,0 +1,92 @@
+/*------------------------------------------------------------------
+  * Fix antialiasing for safari, mac os
+  ******************************************************************/
+body
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+/*------------------------------------------------------------------
+  * Font size media settings
+  ******************************************************************/
+body, html
+  @media (max-width: $screen-md-max)
+    font-size: $font-size-md
+  @media (max-width: $screen-xs-max)
+    font-size: $font-size-xs
+
+/*------------------------------------------------------------------
+  * RTL support
+  ******************************************************************/
+body.rtl
+  direction: rtl
+
+/*------------------------------------------------------------------
+  * Boxed / .boxed
+  * More info docs_build/layout/body.html
+  ******************************************************************/
+
+.boxed
+  .box
+    background-color: #fff
+    @media (min-width: $screen-lg-min + 150)
+      padding: 0 10px
+      box-shadow: 0 0 15px rgba(0,0,0,.3)
+      width: 1300px
+      margin: 0 auto
+
+/*------------------------------------------------------------------
+  * Option enable background pattern
+  * More info docs_build/layout/body.html
+  ******************************************************************/
+.bg-brickwall
+  background: url($imgPath + "../img/patterns/brickwall.png")
+
+.bg-debut_light
+  background: url($imgPath + "../img/patterns/debut_light.png")
+
+.bg-diagonal_lines_01
+  background: url($imgPath + "../img/patterns/diagonal_lines_01.png")
+
+.bg-diagonal-noise
+  background: url($imgPath + "../img/patterns/diagonal-noise.png")
+
+.bg-dust_2X
+  background: url($imgPath + "../img/patterns/dust_2X.png")
+
+.bg-groovepaper
+  background: url($imgPath + "../img/patterns/groovepaper.png")
+
+.bg-little_pluses
+  background: url($imgPath + "../img/patterns/little_pluses.png")
+
+.bg-p4
+  background: url($imgPath + "../img/patterns/p4.png")
+
+.bg-p5
+  background: url($imgPath + "../img/patterns/p5.png")
+
+.bg-retina_dust
+  background: url($imgPath + "../img/patterns/retina_dust.png")
+
+.bg-ricepaper2
+  background: url($imgPath + "../img/patterns/ricepaper2.png")
+
+.bg-shl
+  background: url($imgPath + "../img/patterns/shl.png")
+
+.bg-squairy_light
+  background: url($imgPath + "../img/patterns/squairy_light.png")
+
+.bg-stardust_2X
+  background: url($imgPath + "../img/patterns/stardust_2X.png")
+
+.bg-subtle_dots
+  background: url($imgPath + "../img/patterns/subtle_dots.png")
+
+.bg-subtle_dots_2X
+  background: url($imgPath + "../img/patterns/subtle_dots_2X.png")
+
+.bg-white_brick_wall
+  background: url($imgPath + "../img/patterns/white_brick_wall.png")
+
+.bg-worn_dots
+  background: url($imgPath + "../img/patterns/worn_dots.png")

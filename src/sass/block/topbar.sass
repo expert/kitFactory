@@ -1,0 +1,70 @@
+/*------------------------------------------------------------------
+  * Topbar / .topbar
+  * topbar--v2
+  * topbar--v6
+  * More info docs_build/ui/topbar.html
+  ******************************************************************/
++b(topbar)
+  background: $panel-bg-color
+  border: none
+  margin-bottom: 0
+  +e(row)
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 10px 0
+
+  +e(menu)
+    display: none
+    +max(md)
+      display: block
+      color: #fff
+      fill: #fff
+  +m(v2)
+    +e(row)
+      padding: 0
+    .header__timer
+      padding: 0
+      margin: 0
+      .countdown
+        .countdown__value
+          +vr-fz(32)
+          line-height: 1
+          margin: -5px 0 0
+        .countdown__delimiter
+          margin-top: 3px
+
+  +m(v5)
+  +m(v6)
+    position: absolute
+    top: 100px
+    right: 0
+    left: 0
+    z-index: 25
+    background: none
+    .admin-bar &
+      top: 130px
+    @media (max-width: $screen-xs-max)
+      top: 60px
+    +e(row)
+      background: #fff
+      padding: 0 25px
+      border-radius: 10px
+      @media (max-width: $screen-md-max)
+        padding: 25px
+      @media (max-width: $screen-xs-max)
+        padding: 5px 15px
+
+    & + .main--subpage
+      padding-top: 250px
+      @media (max-width: $screen-md-max)
+        padding-top: 200px
+      @media (max-width: $screen-xs-max)
+        padding-top: 150px
+        +e(menu)
+    +e(menu)
+      color: $default-color
+      fill: $default-color
+      +min(lg)
+        display: none

@@ -1,0 +1,373 @@
+input[type="text"]:not(.countdown__input):not(.toolbar__search-control),
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.form-row input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+.form-row textarea,
+.form-control
+  +form-control
+
+
+.form-group
+  +form-group
+
+.control-label
+  +control-label
+
+.form-row label
+  color: $default-color
+  font-style: italic
+  font-size: 15px
+  font-weight: normal
+  z-index: 15
+
+.form-row textarea,
+textarea.form-control
+  height: 130px
+  line-height: inherit
+
+select
+  display: block
+  width: 100%
+  padding: $padding-base-vertical $padding-base-horizontal
+  font-size: 16px
+  border-radius: 0!important
+  border-color: $input-border
+
+input[type="checkbox"],
+input[type="radio"]
+  //position: absolute
+  //top: 0.2em
+input[type="checkbox"] + label,
+input[type="radio"] + label
+  margin-left: 20px
+
+.form-row
+  +margin(0.5)
+  margin-bottom: 0
+  padding: 0 15px
+.form-row-wide
+  width: 100%
+/*------------------------------------------------------------------
+  * Faq / .faq
+  * More info docs_build/ui/faq.html
+  ******************************************************************/
++b(form)
+  margin-bottom: 0
+  .row
+    &:before,
+    &:after
+      display: none
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin-left: -15px
+    margin-right: -15px
+    .form-group
+      padding-left: 15px
+      padding-right: 15px
+
+  .form-group
+    +margin(0.8)
+    width: 100%
+    +m(donate)
+      flex: 1
+      align-self: center
+      @media (max-width: $screen-xs-max)
+        flex: inherit
+    +m(inline)
+      width: 325px
+      display: flex
+      .control-label
+        position: relative
+        padding-left: 0
+      .form-control
+        flex: 1
+      &.active .control-label
+        transform: translateY(0px) translateX(0px)
+    br
+      display: none
+  +e(raiting)
+    padding-left: 15px
+    padding-right: 15px
+
+  +e(ranges-in)
+    display: none
+  +e(ranges-result)
+    +vr-fz(15, $margin: sticky)
+    font-weight: 400
+  +e(buttons)
+    +margin(0.5)
+    justify-content: space-between
+    flex-wrap: wrap
+    display: flex
+
+  +m(horizontal)
+    .form-group
+      display: flex
+      .control-label
+        position: relative
+        padding-left: 0
+      .form-control
+        flex: 1
+      &.active .control-label
+        transform: translateY(0px) translateX(0px)
+
+  +m(subscribe)
+    margin: 0
+    padding-bottom: 0
+    @media (max-width: $screen-xs-max)
+      display: block
+      padding: 0 15px
+    .form-control
+      border: none
+      background: none
+      color: #fff
+      border-bottom: 1px solid #fff
+      border-radius: 0
+      width: 370px
+      margin: 0 15px
+      padding: 0
+      display: inline-block
+      &:focus
+        box-shadow: none
+        border-bottom: 1px solid #fff
+        background: none
+      &::placeholder
+        color: #fff
+      @media (max-width: $screen-xs-max)
+        width: 100%
+        margin: 0
+
+    .form-group
+      display: inline-block
+      width: auto
+      margin-top: 0
+      &.active .control-label
+        color: #fff
+      @media (max-width: $screen-xs-max)
+        display: block
+    .control-label
+      color: #fff
+
+    +e(submit)
+      +button-border-white
+      box-shadow: none
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+  +m(contacts)
+    +margin(0.5)
+    +e(buttons)
+      +margin(1)
+  +m(products-filter)
+    padding-bottom: 0
+    .form-group
+      +margin(2)
+  +m(coupon)
+    .form-group
+      width: 300px
+      +margin(1)
+      @media (max-width: $screen-xs-max)
+        width: 100%
+    .row
+      align-items: flex-start
+      justify-content: flex-start
+    +e(btn)
+      +margin(1)
+      margin-left: 15px
+  +m(search)
+    position: relative
+    margin: 0
+    padding: 0
+    .form-control
+      position: absolute
+      border-radius: 20px
+      box-shadow: none
+      transition: 0.3s
+      top: -6px
+      &:focus
+        box-shadow: none
+        border-color: $input-border
+        & + .form__search
+          margin-right: 9px
+
+  +m(auth)
+    +clearfix
+    width: 290px
+    +pd(0.5)
+    +pd-lr(big)
+    border: 0
+    box-shadow: none
+    @media (max-width: $screen-xs-max)
+      width: 100%
+      margin-top: 6px
+    +e(title)
+      margin: 0
+      text-transform: uppercase
+
+    +e(submit)
+      margin-right: 15px
+      +margin(1)
+
+    +e(forgot)
+      flex: 1
+      color: $default-color
+      margin-top: 6px
+      line-height: 1.2
+      border: none
+      background: none
+      text-align: left
+      outline: none
+      text-decoration: underline
+      padding: 0
+      margin-left: 15px
+    +e(remember)
+      margin-left: 15px
+      +margin(0.5)
+      position: relative
+      label
+        font-weight: 400
+    +e(links)
+      margin-left: 15px
+      margin-right: 15px
+      color: #acacac
+      a,
+      button
+        border: none
+        background: none
+        color: $default-color
+        text-decoration: underline
+        padding: 1px 3px
+        outline: none
+
+  +m(register)
+    width: 460px
+    @media (max-width: $screen-xs-max)
+      width: 100%
+    .form-group
+      @media (min-width: $screen-lg-min)
+        width: 50%
+    +e(links)
+      padding: 21px 0 0
+
+  +m(logged-in)
+    width: 460px
+  +m(restore)
+    +e(submit)
+      width: 100%
+      margin-left: 15px
+
+    +e(links)
+      +margin(0.5)
+
+  +m(comment)
+    .form-group
+      @media (min-width: $screen-md-min)
+        width: 33.333%
+
+  +m(event-main)
+    +pd-lr(big)
+    +pdb(1)
+    .form-group
+      +m(text)
+        @media (min-width: $screen-lg-min)
+          width: 33.3333%
+    @media (max-width: $screen-xs-max)
+      text-align: left
+    &.wpcf7
+      +pd-lr(big)
+      +pdb(1)
+  +m(event)
+    +pd-lr
+    text-align: left
+    .form-group
+      +m(text)
+        &:first-of-type
+          margin-top: 0
+      +is(active)
+        &:first-of-type
+          +margin(0.8)
+
+    textarea
+      @media (max-width: $screen-md-max)
+        height: 65px
+      
+  +m(event-main)
+    .form-group
+      +m(text)
+        &:first-of-type
+          +margin(0.8)
+  +m(event-split)
+    textarea
+      @media (min-width: $screen-lg-min)
+        height: 150px
+    +e(buttons)
+      justify-content: flex-end
+  +m(event-columns)
+    textarea
+      @media (min-width: $screen-lg-min)
+        height: 180px
+  +m(event-grid)
+    textarea
+      @media (max-width: $screen-md-max)
+        height: 130px
+  +m(event-list)
+    +pd-lr(big)
+    +pd(1)
+    @media (max-width: $screen-xs-max)
+      padding-top: 0
+    .form-group
+      +m(text)
+        &:first-of-type
+          +margin(0.8)
+        @media (min-width: $screen-lg-min)
+          width: 33.3333%
+  +m(slider)
+    background: #fff
+    +margin(1)
+    +pdb(1)
+    +pd-lr(big)
+    @media (max-width: $screen-xs-max)
+      padding-left: 0
+      padding-right: 0
+      margin-top: 0
+    +e(buttons)
+    +e(submit)
+      width: 100%
+  .form-group
+    +m(lg-3)
+      @media (min-width: $screen-lg-min)
+        width: 25%
+    +m(lg-4)
+      @media (min-width: $screen-lg-min)
+        width: 33.3333%
+    +m(lg-6)
+      @media (min-width: $screen-lg-min)
+        width: 50%
+    +m(lg-8)
+      @media (min-width: $screen-lg-min)
+        width: 66.6666%
+    +m(lg-9)
+      @media (min-width: $screen-lg-min)
+        width: 75%
+    +m(lg-12)
+      width: 100%
+  +m(cart)
+    +max(xs)
+      overflow: scroll
+    +e(submit)
+      +margin(1)
+      margin-left: 15px
+div.wpcf7-response-output
+  margin: 0
+  +margin(0.5)

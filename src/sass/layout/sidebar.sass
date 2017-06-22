@@ -1,0 +1,16 @@
+/*------------------------------------------------------------------
+  * Sidebar / .sidebar
+  * .sidebar
+  * More info docs_build/layout/common.html
+  ******************************************************************/
+
++b(sidebar)
+  +make-column($md: 3)
+  +when(sidebar-left, true)
+    @media (min-width: $screen-md-min)
+      float: right
+  +when(sidebar-hide, true)
+    display: none
+  @media (max-width: $screen-sm-max)
+    +margin(1)
+    +pd-lr(normal)

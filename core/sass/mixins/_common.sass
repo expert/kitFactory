@@ -1,0 +1,482 @@
+// title
+
+=title-color($color: $title-color)
+  color: $color
+  a
+    color: $color
+
+=footer-title
+  color: $title-color
+  @media (max-width: $screen-md-max)
+    +margin(1.5)
+
+=title($color: $title-color)
+  text-transform: uppercase
+  text-align: center
+  +vr-fz(60, $margin: "triple")
+  font-family: $font-family-title
+  font-weight: 900
+  +mb(0.5)
+  @if $color !=$title-color
+    color: $color
+  +ti-icon($ti-icon-minus, $after: true)
+  &:after
+    //content: '___'
+    display: block
+    //width: 55px
+    line-height: 3px
+    margin-top: 25px
+    //background: $color
+    //letter-spacing: -11px
+
+  @media (max-width: $screen-xs-max)
+    +vr-fz(30)
+    +mb(0.5)
+
+    &:after
+      margin-top: 0
+
+=title-big
+  +vr-fz(100)
+  color: $brand-color
+  text-transform: uppercase
+  font-weight: 600
+  text-align: left
+  line-height: 0.85
+  position: relative
+  top: 0.15em
+  +mb(0.5)
+  &:after
+    display: none
+  @media (max-width: $screen-md-max)
+    +fz(60)
+    +mb(0.5)
+  @media (max-width: $screen-xs-max)
+    +fz(40)
+    +mb(0.5)
+  +rtl
+    text-align: right
+
+=title-details
+  line-height: 1
+
+=title-widget($color: $title-color)
+  text-transform: uppercase
+  text-align: center
+  +vr-fz(52)
+  @if $color !=$title-color
+    color: $color
+  @media (max-width: $screen-xs-max)
+    +vr-fz(30, $margin: normal)
+
+// font awesome mixinis
+=font-awesome($icon: '', $size: 1em, $color: $default-color)
+  font-size: $size
+  display: inline-block
+  font-family: FontAwesome
+  content: $icon
+  color: $color
+
+=font-awesome-icon ($icon, $size: 1em, $color: inherit, $after: false)
+  @if $after
+    &:after
+      +font-awesome($icon, $size, $color)
+  @else
+    &:before
+      +font-awesome($icon, $size, $color)
+
+=themify-icon($icon, $size)
+  font-family: 'themify'
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  font-size: $size
+  /* Better Font Rendering ===========
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  content: $icon
+
+=ti-icon($icon, $size: 1em, $after: false, $margin: false)
+  @if $after
+    &:after
+      +themify-icon($icon, $size)
+      @if $margin
+        margin-left: 0.5em
+  @else
+    &:before
+      +themify-icon($icon, $size)
+      @if $margin
+        margin-right: 0.5em
+
+=glyphicon($fontSize: 1em, $content: '')
+  position: relative
+  top: 1px
+  display: inline-block
+  font-family: 'Glyphicons Halflings'
+  font-style: normal
+  font-weight: 400
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-size: $fontSize
+  content: $content
+
+// absolute
+=absolute($top: auto, $right: auto, $bottom: auto, $left: auto)
+  position: absolute
+  top: $top
+  left: $left
+  right: $right
+  bottom: $bottom
+
+
+//  container element
+=container($gutter: $grid-gutter-width)
+  margin-right: auto
+  margin-left: auto
+  padding-left: $gutter / 2
+  padding-right: $gutter / 2
+  +clearfix
+  @media (min-width: $screen-xs)
+    width: $screen-xs
+  @media (min-width: $screen-sm-min)
+    width: $container-sm
+  @media (min-width: $screen-md-min)
+    width: $container-md
+  @media (min-width: $screen-lg-min)
+    width: $container-lg
+
+//  container element set width
+=container-width($sm: 12, $md: 12, $lg: 12, $gutter: $grid-gutter-width)
+  +clearfix
+  @media (min-width: $screen-xs-max)
+    width: $container-sm / 12 * $sm + $gutter
+  @media (min-width: $screen-sm-min)
+    width: $container-sm / 12 * $sm + $gutter
+  @media (min-width: $screen-md-min)
+    width: $container-md / 12 * $md + $gutter
+  @media (min-width: $screen-lg-min)
+    width: $container-lg / 12 * $lg - $gutter
+
+=circle($size)
+  width: $size
+  height: $size
+  border-radius: $size
+  vertical-align: middle
+  line-height: $size
+  text-align: center
+
+=rounded($size)
+  width: $size
+  height: $size
+  border-radius: $size
+  vertical-align: middle
+  line-height: $size - 4px
+  text-align: center
+  overflow: hidden
+  img
+    width: 100%
+
+=button-circle($size)
+  +circle($size)
+  cursor: pointer
+  transition: 0.3s
+  border: 2px solid transparent
+  border-radius: $size
+  position: relative
+  z-index: 5
+  background: #fff
+  &:hover
+    border: 2px solid $brand-color
+  .open &
+    border: 2px solid $brand-color
+    border-radius: $size $size 0 0
+    border-bottom: none
+    height: $size + 3px
+
+=dropdown-menu
+  position: absolute
+  left: 0
+  top: 60px
+  opacity: 0
+  height: 0
+  margin: 0
+  padding: 0
+  overflow: hidden
+  cursor: default
+  display: block
+  pointer-events: none
+  -webkit-backface-visibility: hidden
+  backface-visibility: hidden
+  transition: 0.3s
+  transform: translate3d(0, -3px, 0)
+  box-shadow: none
+  border: none
+  .nav__item.opened > &,
+  .is-selected > &,
+  .open &
+    opacity: 1
+    height: auto
+    overflow: visible
+    pointer-events: auto
+    transform: translate3d(0, 0, 0)
+
+=border-separator($color: $border-color)
+  position: relative
+  &:before
+    +lh-fix(30)
+    position: absolute
+    bottom: 0
+    content: ' '
+    display: block
+    left: 0
+    border-right: 1px solid $color
+
+=corner
+  position: relative
+  &:before
+    width: 10px
+    height: 10px
+    position: absolute
+    background: $gray-bg-color
+    bottom: -5px
+    transform: rotate(-45deg)
+    content: ""
+    display: block
+    left: 20px
+
+=outline($color: $border-color)
+  position: relative
+  border: 2px solid $color
+  border-radius: 5px
+  padding: 0 15px
+  @media (max-width: $screen-xs-max)
+    padding: 0 5px
+
+=border-bottom($color: $gray-color)
+  border-bottom: 1px solid $color
+  //margin-top: -1px
+  &:last-of-type
+    border-bottom: none
+
+=ul($inline: false)
+  margin: 0
+  padding: 0
+  list-style: none
+  @if $inline
+    li
+      display: inline-block
+
+=btn
+  padding: 0
+  background: none
+  border: none
+  outline: none
+
+=hide-overflow ($rows: 1, $strict: false)
+  @if $strict
+    height: $rows * 3rem - 0.1rem
+  @else
+    max-height: $rows * 3rem - 0.1rem
+
+  overflow: hidden
+  position: relative
+  &:after
+    position: absolute
+    display: block
+    content: ' '
+    height: 3rem
+    bottom: 0
+    right: 0
+    width: 20%
+    background: linear-gradient(to right, rgba(#fff, 0.1) 0%, #fff 50%)
+    +rtl
+      right: auto
+      left: 0
+      background: linear-gradient(to right, #fff 0%, rgba(#fff, 0.1) 50%)
+  @media (max-width: $screen-md-max)
+    max-height: $rows * 1.5rem + 0.5rem
+    &:after
+      height: 1.5rem
+
+=scrollbar
+  &::-webkit-scrollbar
+    width: 5px
+    height: 5px
+
+  &::-webkit-scrollbar-track
+    border-radius: 3px
+    width: 3px
+    background: #e0e0e0
+
+  &::-webkit-scrollbar-thumb
+    border-radius: 5px
+    width: 5px
+    background: $brandColor
+
+=rtl
+  +when('rtl', true)
+    @content
+
+=clearclean
+  &:before,
+  &:after
+    content: ''
+    display: none
+
+@function getWidth($media, $value)
+  @if ( $media == 'xs')
+    @if ( $value == 'min')
+      @return $screen-xs-min
+    @else
+      @return $screen-xs-max
+  @if ( $media == 'sm')
+    @if ( $value == 'min')
+      @return $screen-sm-min
+    @else
+      @return $screen-sm-max
+  @if ( $media == 'md')
+    @if ( $value == 'min')
+      @return $screen-md-min
+    @else
+      @return $screen-md-max
+  @if ( $media == 'lg')
+    @return $screen-lg
+
+=min($media)
+  @media (min-width: getWidth($media, 'min'))
+    @content
+
+=max($media)
+  @media (max-width: getWidth($media, 'max'))
+    @content
+
+=print()
+  @media print
+    @content
+
+// form controls
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+=form-control
+  display: block
+  color: $input-color
+  position: relative
+  z-index: 5
+  // @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  //transition : border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s
+  // Customize the `:focus` state to imitate native WebKit styles.
+  &:focus
+    box-shadow: none
+    border: none
+    background: $gray-color
+  // Placeholder
+  //+placeholder
+
+  background: $gray-color
+  border: none
+  border-radius: 5px
+  padding: 0 20px
+  font-size: 15px
+  line-height: 46px
+  height: 46px
+  width: 100%
+  outline: none
+  box-shadow: none
+  .widget--panel &
+    background: #fff
+    border: 1px solid $input-border
+    height: 30px
+    line-height: 30px
+  .has-error &
+    border: 1px solid $danger-color
+    &:focus
+      border: 1px solid $danger-color
+      box-shadow: none
+  .has-success &
+    border: 1px solid $success-color
+    &:focus
+      border: 1px solid $success-color
+      box-shadow: none
+  .input-group &
+    border-radius: 0
+
+=control-label
+  position: absolute
+  color: $default-color
+  font-style: italic
+  font-size: 15px
+  padding: 0 20px
+  line-height: 44px
+  height: 44px
+  font-weight: normal
+  transition: 0.3s
+  z-index: 15
+  +text-overflow
+//+rtl
+//  right: 15px
+
+=form-group
+  position: relative
+  margin-bottom: 0
+  +is(active)
+    .control-label
+      font-size: 13px
+      transform: translateY(-30px) translateX(-20px)
+      color: $brand-color
+      +rtl
+        transform: translateY(-30px) translateX(20px)
+
+    +is(has-error)
+      .control-label
+        color: $danger-color
+    +is(has-success)
+      .control-label
+        color: $success-color
+
+  +is(required)
+    .control-label:after
+      content: "*"
+      color: red
+      margin-left: 3px
+  +is(disabled)
+    .control-label
+      font-size: 13px
+      transform: translateY(-30px) translateX(-20px)
+      color: $gray-color-dark
+      +rtl
+        transform: translateY(-30px) translateX(20px)
+
+
+=toolbar-links
+  color: $default-color
+  padding: 3px 30px
+  display: block
+  transition: 0.3s
+  +fz(17)
+  &:hover
+    color: $brand-color
+    text-decoration: none
+    padding: 3px 30px 3px 40px

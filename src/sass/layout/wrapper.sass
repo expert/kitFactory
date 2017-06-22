@@ -1,0 +1,52 @@
+/*------------------------------------------------------------------
+  * wrapper / .wrapper
+  * wrapper--landing
+  ******************************************************************/
++b(wrapper)
+  +clearfix
+  +e(title)
+    +title
+    +m(brand)
+      +title-big
+    +m(half)
+      width: 50%
+      +max(sm)
+        width: 100%
+    +m(float)
+      float: left
+      width: 50%
+      +max(sm)
+        width: 100%
+        float: none
+  +e(content)
+    +when('header + ')
+      +pdb(3)
+      +margin(1.5)
+  +m(landing)
+    //+e(header)
+    //  //+container
+    //+e(title)
+    //  +m(float)
+    //    float: left
+    +e(content)
+      //+container
+      +margin(1.5)
+      +pdb(3)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+        +pdb(1)
+  +m(title-big)
+    +e(header)
+      +margin(3)
+      @media (max-width: $screen-xs-max)
+        +margin(1)
+    +e(title)
+      +title-big
+      //+when(header)
+      width: 50%
+    +e(content)
+      +margin(3)
+      +when('header + ')
+        +margin(1)
+      //@media (max-width: $screen-xs-max)
+      //  +margin(1)

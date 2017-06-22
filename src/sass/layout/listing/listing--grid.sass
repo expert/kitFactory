@@ -1,0 +1,30 @@
++b(listing)
+  +m(grid)
+    display: flex
+    flex-wrap: wrap
+    +margin(-1.5)
+    +clearclean
+    margin-left:  ceil(($grid-gutter-width / -2));
+    margin-right: floor(($grid-gutter-width / -2));
+    +e(item)
+      +margin(1.5)
+      +make-flex-item($lg: 3, $sm: 2, $xs: 1)
+    @media (max-width: $screen-xs-max)
+      +margin(-1)
+      +e(item)
+        +margin(1)
+  +m(lg-2)
+    +e(item)
+      +make-flex-item($lg: 2)
+  +m(lg-3)
+    +e(item)
+      +make-flex-item($lg: 3)
+  +m(lg-4)
+    +e(item)
+      +make-flex-item($lg: 4)
+  +m(lg-5)
+    +e(item)
+      +make-flex-item($lg: 5)
+  +m(lg-6)
+    +e(item)
+      +make-flex-item($lg: 6)

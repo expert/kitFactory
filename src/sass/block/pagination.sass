@@ -1,0 +1,77 @@
+/*------------------------------------------------------------------
+  * Pagination (multiple pages) / .pagination
+  * More info docs_build/ui/pagination.html
+  ******************************************************************/
++b(pagination)
+  margin: 0
+  +margin(1.5)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  @media (max-width: $screen-sm-max)
+    +margin(1)
+
+  +e(btn)
+    border: 1px solid $gray-color
+    border-radius: 3px
+    color: $default-color
+    text-transform: none
+    padding: 3px 10px 5px
+    +vr-fz(19, $margin: sticky)
+    +m(prev)
+      margin-right: auto
+    +m(next)
+      margin-left: auto
+  +e(btn-svg)
+    fill: $default-color
+    width: 30px
+    height: 30px
+    margin: -10px 5px
+  +e(btn-span)
+    @media (max-width: $screen-xs-max)
+      display: none
+  +e(pages)
+    flex: 1
+    text-align: center
+    +ul(true)
+    li
+      margin: 0 10px
+      @media (max-width: $screen-xs-max)
+        margin: 0 5px
+    a
+      border: 1px solid $gray-color
+      border-radius: 3px
+      color: $default-color
+      display: block
+      padding: 0 10px
+      +vr-fz(19, $margin: sticky)
+
+    .active span
+      background: $brand-color
+      border-radius: 3px
+      color: #fff
+      display: block
+      padding: 0 10px
+      +vr-fz(19, $margin: sticky)
+  .nav-links
+    width: 100%
+    .page-numbers
+      margin: 0 10px
+      @media (max-width: $screen-xs-max)
+        margin: 0 5px
+      border: 1px solid $gray-color
+      border-radius: 3px
+      color: $default-color
+      display: inline-block
+      padding: 0 10px
+      +vr-fz(19, $margin: sticky)
+
+      &.current
+        background: $brand-color
+        border-radius: 3px
+        color: #fff
+        padding: 0 10px
+        +vr-fz(19, $margin: sticky)
+      .icon
+        width: 20px
+        height: 15px
